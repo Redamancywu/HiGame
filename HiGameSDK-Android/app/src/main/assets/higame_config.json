@@ -1,0 +1,75 @@
+{
+  "sdk_version": "1.0.0",
+  "game_name": "SDK Test Demo",
+  "debug_mode": true,
+  "features": {
+    "auth": {
+      "oauth_providers": ["google", "facebook", "apple"],
+      "token_expiration_time": 3600,
+      "encryption_key": "your_encryption_key"
+    },
+    "payment": {
+      "merchant_id": "your_merchant_id",
+      "supported_payment_methods": ["google", "alipay", "wechatpay", "applepay"],
+      "subscription_support": true,
+      "sandbox_mode": false
+    },
+    "ads": {
+      "ad_platform": "TTAdSDK",
+      "ad_network": "TTAd",
+      "ad_unit_ids": {
+        "adPosId" : "5661724",
+        "banner": "963979499",
+        "interstitial": "963953923",
+        "rewarded_video": "rewarded_video_ad_unit_id",
+        "native": "native_ad_unit_id"
+      },
+      "frequency_capping": {
+        "max_interstitial_per_hour": 5,
+        "max_rewarded_video_per_day": 10
+      }
+    },
+    "account": {
+      "auto_login": true,
+      "guest_login_enabled": true,
+      "friend_system_enabled": true,
+      "leaderboard_enabled": true,
+      "google_client": "393085228405-5dacc9jbh0ccjdmguhc5btpvh2hv87cm.apps.googleusercontent.com",
+      "qq_app_id": "102685586",
+      "qq_app_key": "hOzUtIertldN7soS"
+    },
+    "social": {
+      "share_providers": ["facebook", "twitter", "wechat"],
+      "invite_bonus": {
+        "points": 100,
+        "currency": "game_currency"
+      }
+    },
+    "analytics": {
+      "api_key": "your_api_key",
+      "event_tracking_enabled": true,
+      "realtime_dashboard_url": "https://dashboard.higame.com"
+    },
+    "localization": {
+      "supported_languages": ["en", "zh", "es", "fr"],
+      "default_language": "en"
+    },
+    "push_notifications": {
+      "enabled": true,
+      "fcm_sender_id": "your_fcm_sender_id"
+    },
+    "cloud_services": {
+      "cloud_storage_enabled": true,
+      "sync_frequency_minutes": 15
+    }
+  },
+  "server": {
+    "api_host": "https://api.higame.com",
+    "cdn_host": "https://cdn.higame.com"
+  },
+  "privacy": {
+    "gdpr_compliance": true,
+    "ccpa_compliance": true,
+    "att_framework_compliance": true
+  }
+}
