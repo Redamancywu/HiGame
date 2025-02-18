@@ -110,6 +110,7 @@ public class UserServiceImpl implements UserService {
         user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));
         user.setStatus(User.UserStatus.ACTIVE);
+        user.setRegisterType(User.RegisterType.SIMPLE);
         user = userRepository.save(user);
         
         return convertToDTO(user);

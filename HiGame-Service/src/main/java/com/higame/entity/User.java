@@ -38,6 +38,17 @@ public class User implements UserDetails {
 
     private String gender;
 
+    public enum RegisterType {
+        SIMPLE,
+        EMAIL,
+        PHONE,
+        THIRD_PARTY
+    }
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "register_type")
+    private RegisterType registerType;
+
     private LocalDateTime birthday;
 
     @Enumerated(EnumType.STRING)

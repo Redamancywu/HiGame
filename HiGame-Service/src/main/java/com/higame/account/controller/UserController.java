@@ -1,6 +1,7 @@
 package com.higame.account.controller;
 
 import com.higame.account.service.UserService;
+import com.higame.dto.UserDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -57,7 +58,12 @@ public class UserController {
     public ResponseEntity<?> simpleRegister(
             @Parameter(description = "用户名", required = true) @RequestParam String username,
             @Parameter(description = "密码", required = true) @RequestParam String password) {
-        return ResponseEntity.ok().build();
+        try {
+            UserDTO userDTO = userService.registerSimple(username, password);
+            return ResponseEntity.ok(userDTO);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(409).body(e.getMessage());
+        }
     }
 
     @Operation(summary = "获取用户信息", description = "获取当前登录用户的详细信息")

@@ -7,6 +7,13 @@ import java.time.LocalDateTime;
 
 @Data
 public class UserDTO {
+    public enum RegisterType {
+        SIMPLE,      // 简单注册
+        EMAIL,       // 邮箱注册
+        PHONE,       // 手机号注册
+        THIRD_PARTY  // 第三方账号注册
+    }
+
     private Long id;
     private String username;
     private String email;
@@ -23,4 +30,5 @@ public class UserDTO {
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
     private String verificationCode;
+    private RegisterType registerType;
 }
