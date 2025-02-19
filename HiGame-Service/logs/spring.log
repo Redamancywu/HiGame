@@ -748,3 +748,226 @@ This generated password is for development use only. Your security configuration
 2025-02-19 17:12:27 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
 2025-02-19 17:12:27 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
 2025-02-19 17:12:27 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2025-02-19 17:59:59 [scheduling-1] INFO  com.higame.task.StatisticsTask - 开始更新用户统计数据...
+2025-02-19 18:00:00 [scheduling-1] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.active_users,
+        u1_0.create_time,
+        u1_0.date,
+        u1_0.new_users,
+        u1_0.total_users,
+        u1_0.update_time,
+        u1_0.user_type 
+    from
+        user_statistics u1_0 
+    where
+        u1_0.date=? 
+        and u1_0.user_type=?
+2025-02-19 18:00:00 [scheduling-1] DEBUG org.hibernate.SQL - 
+    /* SELECT
+        COUNT(u) 
+    FROM
+        User u 
+    WHERE
+        u.userType = :userType */ select
+            count(u1_0.id) 
+        from
+            users u1_0 
+        where
+            u1_0.user_type=?
+2025-02-19 18:00:00 [scheduling-1] DEBUG org.hibernate.SQL - 
+    /* SELECT
+        COUNT(u) 
+    FROM
+        User u 
+    WHERE
+        u.userType = :userType 
+        AND DATE(u.lastLoginTime) = :date */ select
+            count(u1_0.id) 
+        from
+            users u1_0 
+        where
+            u1_0.user_type=? 
+            and date(u1_0.last_login_time)=?
+2025-02-19 18:00:00 [scheduling-1] DEBUG org.hibernate.SQL - 
+    /* SELECT
+        COUNT(u) 
+    FROM
+        User u 
+    WHERE
+        u.userType = :userType 
+        AND DATE(u.createTime) = :date */ select
+            count(u1_0.id) 
+        from
+            users u1_0 
+        where
+            u1_0.user_type=? 
+            and date(u1_0.create_time)=?
+2025-02-19 18:00:00 [scheduling-1] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.active_users,
+        u1_0.create_time,
+        u1_0.date,
+        u1_0.new_users,
+        u1_0.total_users,
+        u1_0.update_time,
+        u1_0.user_type 
+    from
+        user_statistics u1_0 
+    where
+        u1_0.date=? 
+        and u1_0.user_type=?
+2025-02-19 18:00:00 [scheduling-1] DEBUG org.hibernate.SQL - 
+    /* SELECT
+        COUNT(u) 
+    FROM
+        User u 
+    WHERE
+        u.userType = :userType */ select
+            count(u1_0.id) 
+        from
+            users u1_0 
+        where
+            u1_0.user_type=?
+2025-02-19 18:00:00 [scheduling-1] DEBUG org.hibernate.SQL - 
+    /* SELECT
+        COUNT(u) 
+    FROM
+        User u 
+    WHERE
+        u.userType = :userType 
+        AND DATE(u.lastLoginTime) = :date */ select
+            count(u1_0.id) 
+        from
+            users u1_0 
+        where
+            u1_0.user_type=? 
+            and date(u1_0.last_login_time)=?
+2025-02-19 18:00:00 [scheduling-1] DEBUG org.hibernate.SQL - 
+    /* SELECT
+        COUNT(u) 
+    FROM
+        User u 
+    WHERE
+        u.userType = :userType 
+        AND DATE(u.createTime) = :date */ select
+            count(u1_0.id) 
+        from
+            users u1_0 
+        where
+            u1_0.user_type=? 
+            and date(u1_0.create_time)=?
+2025-02-19 18:00:00 [scheduling-1] INFO  com.higame.task.StatisticsTask - 用户统计数据更新完成
+2025-02-19 18:08:52 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-19 18:08:52 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - DatebookHikariCP - Shutdown initiated...
+2025-02-19 18:08:52 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - DatebookHikariCP - Shutdown completed.
+2025-02-19 18:08:54 [main] INFO  com.higame.HiGameServiceApplication - Starting HiGameServiceApplication using Java 17.0.12 with PID 23086 (/Users/neillwu/Documents/HiGameSDK/HiGame-Service/target/classes started by neillwu in /Users/neillwu/Documents/HiGameSDK/HiGame-Service)
+2025-02-19 18:08:54 [main] DEBUG com.higame.HiGameServiceApplication - Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-02-19 18:08:54 [main] INFO  com.higame.HiGameServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-19 18:08:54 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.higame.HiGameServiceApplication]
+2025-02-19 18:08:54 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.higame.HiGameServiceApplication]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:178)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:415)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:287)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:344)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:115)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:779)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:597)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:738)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:440)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.higame.HiGameServiceApplication.main(HiGameServiceApplication.java:11)
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'statisticsController' for bean class [com.higame.statistics.controller.StatisticsController] conflicts with existing, non-compatible bean definition of same name and class [com.higame.controller.StatisticsController]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:349)
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:287)
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:128)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:289)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:243)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:196)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:164)
+	... 13 common frames omitted
+2025-02-19 18:12:04 [main] INFO  com.higame.HiGameServiceApplication - Starting HiGameServiceApplication using Java 17.0.12 with PID 24275 (/Users/neillwu/Documents/HiGameSDK/HiGame-Service/target/classes started by neillwu in /Users/neillwu/Documents/HiGameSDK/HiGame-Service)
+2025-02-19 18:12:04 [main] DEBUG com.higame.HiGameServiceApplication - Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-02-19 18:12:04 [main] INFO  com.higame.HiGameServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-19 18:12:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-19 18:12:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-19 18:12:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 66 ms. Found 5 JPA repository interfaces.
+2025-02-19 18:12:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-19 18:12:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-19 18:12:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.higame.repository.ThirdPartyAccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-02-19 18:12:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.higame.repository.UserActivityLogRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-02-19 18:12:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.higame.repository.UserDeviceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-02-19 18:12:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.higame.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-02-19 18:12:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.higame.repository.UserStatisticsRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-02-19 18:12:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2025-02-19 18:12:05 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-02-19 18:12:05 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-19 18:12:05 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-02-19 18:12:05 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-02-19 18:12:05 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 686 ms
+2025-02-19 18:12:05 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-19 18:12:05 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.13.Final
+2025-02-19 18:12:05 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-02-19 18:12:05 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-19 18:12:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - DatebookHikariCP - Starting...
+2025-02-19 18:12:05 [main] INFO  com.zaxxer.hikari.pool.HikariPool - DatebookHikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@44485db
+2025-02-19 18:12:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - DatebookHikariCP - Start completed.
+2025-02-19 18:12:05 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-19 18:12:06 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-19 18:12:06 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-19 18:12:06 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-02-19 18:12:06 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 6195dcf5-1e4a-419b-82bc-627c8ec3f5c5
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-02-19 18:12:06 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2680474c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4de3a1ca, org.springframework.security.web.context.SecurityContextHolderFilter@4e38b4ea, org.springframework.security.web.header.HeaderWriterFilter@2242dd2b, org.springframework.web.filter.CorsFilter@329cdafa, org.springframework.security.web.authentication.logout.LogoutFilter@7828111d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@20e1ce62, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5b1505c3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6b36ab82, org.springframework.security.web.session.SessionManagementFilter@4a81582c, org.springframework.security.web.access.ExceptionTranslationFilter@5168f69d, org.springframework.security.web.access.intercept.AuthorizationFilter@23591a2c]
+2025-02-19 18:12:07 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-02-19 18:12:07 [main] INFO  com.higame.HiGameServiceApplication - Started HiGameServiceApplication in 2.543 seconds (process running for 2.846)
+2025-02-19 18:12:15 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-19 18:12:15 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-19 18:12:15 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-19 18:12:15 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.html?urls.primaryName=higame-public
+2025-02-19 18:12:15 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-19 18:12:15 [http-nio-8080-exec-1] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E07692338213EDE5198E09EEF0A3277F
+2025-02-19 18:12:15 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.html?urls.primaryName=higame-public
+2025-02-19 18:12:15 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui.css
+2025-02-19 18:12:15 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-19 18:12:15 [http-nio-8080-exec-2] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E07692338213EDE5198E09EEF0A3277F
+2025-02-19 18:12:15 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui.css
+2025-02-19 18:12:15 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.css
+2025-02-19 18:12:15 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-19 18:12:15 [http-nio-8080-exec-3] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E07692338213EDE5198E09EEF0A3277F
+2025-02-19 18:12:15 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-initializer.js
+2025-02-19 18:12:15 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-02-19 18:12:15 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-19 18:12:15 [http-nio-8080-exec-5] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E07692338213EDE5198E09EEF0A3277F
+2025-02-19 18:12:15 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-bundle.js
+2025-02-19 18:12:15 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-19 18:12:15 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-19 18:12:15 [http-nio-8080-exec-6] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E07692338213EDE5198E09EEF0A3277F
+2025-02-19 18:12:15 [http-nio-8080-exec-4] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E07692338213EDE5198E09EEF0A3277F
+2025-02-19 18:12:15 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-initializer.js
+2025-02-19 18:12:15 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-02-19 18:12:15 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.css
+2025-02-19 18:12:15 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-bundle.js
+2025-02-19 18:12:15 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/swagger-config
+2025-02-19 18:12:15 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-19 18:12:15 [http-nio-8080-exec-7] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E07692338213EDE5198E09EEF0A3277F
+2025-02-19 18:12:15 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/swagger-config
+2025-02-19 18:12:15 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/favicon-32x32.png
+2025-02-19 18:12:15 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-19 18:12:15 [http-nio-8080-exec-8] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E07692338213EDE5198E09EEF0A3277F
+2025-02-19 18:12:15 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/favicon-32x32.png
+2025-02-19 18:12:15 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/higame-public
+2025-02-19 18:12:15 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-19 18:12:15 [http-nio-8080-exec-9] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E07692338213EDE5198E09EEF0A3277F
+2025-02-19 18:12:15 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/higame-public
+2025-02-19 18:12:15 [http-nio-8080-exec-9] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 217 ms

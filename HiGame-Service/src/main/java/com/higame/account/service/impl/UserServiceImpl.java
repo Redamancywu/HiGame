@@ -178,11 +178,13 @@ public class UserServiceImpl implements UserService {
 
         // 更新设备信息
         if (StringUtils.isNotEmpty(request.getDeviceId())) {
-            UserDevice device = userDeviceRepository.findByUserIdAndDeviceId(user.getId(), request.getDeviceId())
+            final User finalUser = user;
+            final String deviceId = request.getDeviceId();
+            UserDevice device = userDeviceRepository.findByUserIdAndDeviceId(finalUser.getId(), deviceId)
                     .orElseGet(() -> {
                         UserDevice newDevice = new UserDevice();
-                        newDevice.setUser(user);
-                        newDevice.setDeviceId(request.getDeviceId());
+                        newDevice.setUser(finalUser);
+                        newDevice.setDeviceId(deviceId);
                         return newDevice;
                     });
 
@@ -284,10 +286,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO getUserInfo(Long userId) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("用户不存在"));
-        return convertToDTO(user);
+    public ResponseEntity<?> getUserInfo(Long userId) {
+        try {
+            final User user = userRepository.findById(userId)
+                    .orElseThrow(() -> new RuntimeException("用户不存在"));
+            return ResponseEntity.ok(convertToDTO(user));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @Override
