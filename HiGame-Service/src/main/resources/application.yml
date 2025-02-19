@@ -85,7 +85,7 @@ cors:
 jwt:
   secret: your-secret-key
   expiration: 86400000  # 24 hours in milliseconds
-  base64-secret: ${JWT_SECRET:UkXp2s5v8y/B?E(H+MbQeThWmZq3t6w9z$C&F)J@NcRfUjXn2r5u8x/A%D*G-Ka}  # 使用安全的Base64编码密钥
+  base64-secret: ${JWT_SECRET:UkdGelpYUmZhMlY1WDNabGNubHZibVZmYzJWamRYSmxYMnRsZVY5c2IyNW5YM1psY25sZmMyVmpkWEpsSFE9PQ==}  # 使用安全的Base64编码密钥（>=256位）
   access-token-expiration: 3600  # 访问令牌过期时间（秒）
   refresh-token-expiration: 604800  # 刷新令牌过期时间（秒）
   issuer: HiGame

@@ -1,86 +1,51 @@
-&lt;template&gt;
-  &lt;div class="settings-container"&gt;
-    &lt;el-card&gt;
-      &lt;template #header&gt;
-        &lt;div class="card-header"&gt;
-          &lt;span&gt;个人设置&lt;/span&gt;
-        &lt;/div&gt;
-      &lt;/template&gt;
+<template>
+  <div class="settings-container">
+    <el-card>
+      <template #header>
+        <div class="card-header">
+          <span>个人设置</span>
+        </div>
+      </template>
       
-      &lt;el-form
+      <el-form
         ref="formRef"
         :model="formData"
         :rules="formRules"
         label-width="100px"
-      &gt;
-        &lt;el-form-item label="用户名" prop="username"&gt;
-          &lt;el-input v-model="formData.username" disabled /&gt;
-        &lt;/el-form-item&gt;
+      >
+        <el-form-item label="用户名" prop="username">
+          <el-input v-model="formData.username" disabled />
+        </el-form-item>
         
-        &lt;el-form-item label="邮箱" prop="email"&gt;
-          &lt;el-input v-model="formData.email" /&gt;
-        &lt;/el-form-item&gt;
+        <el-form-item label="邮箱" prop="email">
+          <el-input v-model="formData.email" />
+        </el-form-item>
         
-        &lt;el-form-item label="手机号" prop="phone"&gt;
-          &lt;el-input v-model="formData.phone" /&gt;
-        &lt;/el-form-item&gt;
+        <el-form-item label="手机号" prop="phone">
+          <el-input v-model="formData.phone" />
+        </el-form-item>
         
-        &lt;el-form-item label="旧密码" prop="oldPassword"&gt;
-          &lt;el-input v-model="formData.oldPassword" type="password" show-password /&gt;
-        &lt;/el-form-item&gt;
+        <el-form-item label="旧密码" prop="oldPassword">
+          <el-input v-model="formData.oldPassword" type="password" show-password />
+        </el-form-item>
         
-        &lt;el-form-item label="新密码" prop="newPassword"&gt;
-          &lt;el-input v-model="formData.newPassword" type="password" show-password /&gt;
-        &lt;/el-form-item&gt;
+        <el-form-item label="新密码" prop="newPassword">
+          <el-input v-model="formData.newPassword" type="password" show-password />
+        </el-form-item>
         
-        &lt;el-form-item label="确认密码" prop="confirmPassword"&gt;
-          &lt;el-input v-model="formData.confirmPassword" type="password" show-password /&gt;
-        &lt;/el-form-item&gt;
+        <el-form-item label="确认密码" prop="confirmPassword">
+          <el-input v-model="formData.confirmPassword" type="password" show-password />
+        </el-form-item>
         
-        &lt;el-form-item&gt;
-          &lt;el-button type="primary" @click="handleSubmit"&gt;保存修改&lt;/el-button&gt;
-        &lt;/el-form-item&gt;
-      &lt;/el-form&gt;
-    &lt;/el-card&gt;
+        <el-form-item>
+          <el-button type="primary" @click="handleSubmit">保存修改</el-button>
+        </el-form-item>
+      </el-form>
+    </el-card>
+  </div>
+</template>
 
-    &lt;el-card class="mt-4"&gt;
-      &lt;template #header&gt;
-        &lt;div class="card-header"&gt;
-          &lt;span&gt;系统设置&lt;/span&gt;
-        &lt;/div&gt;
-      &lt;/template&gt;
-      
-      &lt;el-form
-        :model="systemSettings"
-        label-width="100px"
-      &gt;
-        &lt;el-form-item label="语言"&gt;
-          &lt;el-select v-model="systemSettings.language" style="width: 200px"&gt;
-            &lt;el-option label="简体中文" value="zh-CN" /&gt;
-            &lt;el-option label="English" value="en-US" /&gt;
-          &lt;/el-select&gt;
-        &lt;/el-form-item&gt;
-        
-        &lt;el-form-item label="主题"&gt;
-          &lt;el-select v-model="systemSettings.theme" style="width: 200px"&gt;
-            &lt;el-option label="浅色" value="light" /&gt;
-            &lt;el-option label="深色" value="dark" /&gt;
-          &lt;/el-select&gt;
-        &lt;/el-form-item&gt;
-        
-        &lt;el-form-item label="通知"&gt;
-          &lt;el-switch v-model="systemSettings.notifications" /&gt;
-        &lt;/el-form-item&gt;
-        
-        &lt;el-form-item&gt;
-          &lt;el-button type="primary" @click="handleSaveSystemSettings"&gt;保存设置&lt;/el-button&gt;
-        &lt;/el-form-item&gt;
-      &lt;/el-form&gt;
-    &lt;/el-card&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script setup&gt;
+<script setup>
 import { ref, reactive } from 'vue'
 import { ElMessage } from 'element-plus'
 import { updateUserProfile, updatePassword } from '../api/user'
@@ -183,9 +148,9 @@ const initSystemSettings = () => {
 
 // 初始化
 initSystemSettings()
-&lt;/script&gt;
+</script>
 
-&lt;style scoped&gt;
+<style scoped>
 .settings-container {
   padding: 20px;
 }
@@ -199,4 +164,4 @@ initSystemSettings()
   justify-content: space-between;
   align-items: center;
 }
-&lt;/style&gt;
+</style>

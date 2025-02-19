@@ -1,53 +1,53 @@
-&lt;template>
-  &lt;el-container class="layout-container">
-    &lt;el-aside width="200px">
-      &lt;el-menu
+<template>
+  <el-container class="layout-container">
+    <el-aside width="200px">
+      <el-menu
         :router="true"
         :default-active="route.path"
         class="el-menu-vertical"
       >
-        &lt;el-menu-item index="/">
-          &lt;el-icon>&lt;DataLine />&lt;/el-icon>
-          &lt;span>数据统计&lt;/span>
-        &lt;/el-menu-item>
-        &lt;el-menu-item index="/users">
-          &lt;el-icon>&lt;User />&lt;/el-icon>
-          &lt;span>用户管理&lt;/span>
-        &lt;/el-menu-item>
-      &lt;/el-menu>
-    &lt;/el-aside>
+        <el-menu-item index="/">
+          <el-icon><DataLine /></el-icon>
+          <span>数据统计</span>
+        </el-menu-item>
+        <el-menu-item index="/users">
+          <el-icon><User /></el-icon>
+          <span>用户管理</span>
+        </el-menu-item>
+      </el-menu>
+    </el-aside>
     
-    &lt;el-container>
-      &lt;el-header>
-        &lt;div class="header-left">
-          &lt;el-icon @click="toggleCollapse" class="toggle-button">
-            &lt;Fold v-if="!isCollapse" />
-            &lt;Expand v-else />
-          &lt;/el-icon>
-        &lt;/div>
-        &lt;div class="header-right">
-          &lt;el-dropdown>
-            &lt;span class="user-info">
+    <el-container>
+      <el-header>
+        <div class="header-left">
+          <el-icon @click="toggleCollapse" class="toggle-button">
+            <Fold v-if="!isCollapse" />
+            <Expand v-else />
+          </el-icon>
+        </div>
+        <div class="header-right">
+          <el-dropdown>
+            <span class="user-info">
               {{ userStore.username }}
-              &lt;el-icon>&lt;CaretBottom />&lt;/el-icon>
-            &lt;/span>
-            &lt;template #dropdown>
-              &lt;el-dropdown-menu>
-                &lt;el-dropdown-item @click="handleLogout">退出登录&lt;/el-dropdown-item>
-              &lt;/el-dropdown-menu>
-            &lt;/template>
-          &lt;/el-dropdown>
-        &lt;/div>
-      &lt;/el-header>
+              <el-icon><CaretBottom /></el-icon>
+            </span>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item @click="handleLogout">退出登录</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+        </div>
+      </el-header>
       
-      &lt;el-main>
-        &lt;router-view />
-      &lt;/el-main>
-    &lt;/el-container>
-  &lt;/el-container>
-&lt;/template>
+      <el-main>
+        <router-view />
+      </el-main>
+    </el-container>
+  </el-container>
+</template>
 
-&lt;script setup>
+<script setup>
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useUserStore } from '../stores/user'
@@ -66,9 +66,9 @@ const handleLogout = () => {
   localStorage.removeItem('token')
   router.push('/login')
 }
-&lt;/script>
+</script>
 
-&lt;style scoped>
+<style scoped>
 .layout-container {
   height: 100vh;
 }
@@ -111,4 +111,4 @@ const handleLogout = () => {
   background-color: #f0f2f5;
   padding: 20px;
 }
-&lt;/style>
+</style>
