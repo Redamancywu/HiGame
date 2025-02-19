@@ -1416,3 +1416,24 @@ This generated password is for development use only. Your security configuration
 2025-02-19 18:30:08 [http-nio-8080-exec-5] INFO  c.h.admin.controller.AdminController - 管理员登录成功，用户名: admin
 2025-02-19 18:30:08 [http-nio-8080-exec-5] DEBUG c.h.admin.controller.AdminController - 已生成管理员用户token
 2025-02-19 18:30:08 [http-nio-8080-exec-5] INFO  c.h.admin.controller.AdminController - 正在发送登录成功响应
+2025-02-19 18:50:44 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/admin/devices?page=0&size=10&deviceId=&userId=&osType=&online=&_t=1739962244231
+2025-02-19 18:50:44 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/admin/devices?page=0&size=10&deviceId=&userId=&osType=&online=&_t=1739962244231
+2025-02-19 18:50:44 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-19 18:50:44 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2025-02-19 18:50:44 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error?page=0&size=10&deviceId=&userId=&osType=&online=&_t=1739962244231
+2025-02-19 18:50:44 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-19 18:50:44 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2025-02-19 18:51:36 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/admin/devices?page=0&size=10&deviceId=&userId=&osType=&online=&_t=1739962296295
+2025-02-19 18:51:36 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/admin/devices?page=0&size=10&deviceId=&userId=&osType=&online=&_t=1739962296295
+2025-02-19 18:51:36 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-19 18:51:36 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2025-02-19 18:51:36 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error?page=0&size=10&deviceId=&userId=&osType=&online=&_t=1739962296295
+2025-02-19 18:51:36 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-19 18:51:36 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2025-02-19 18:52:11 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/admin/devices?page=0&size=10&deviceId=&userId=&osType=&online=&_t=1739962331891
+2025-02-19 18:52:11 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/admin/devices?page=0&size=10&deviceId=&userId=&osType=&online=&_t=1739962331891
+2025-02-19 18:52:11 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-19 18:52:11 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2025-02-19 18:52:11 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error?page=0&size=10&deviceId=&userId=&osType=&online=&_t=1739962331891
+2025-02-19 18:52:11 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-02-19 18:52:11 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access

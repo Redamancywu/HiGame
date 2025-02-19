@@ -1,89 +1,89 @@
-&lt;template&gt;
-  &lt;div class="devices-container"&gt;
-    &lt;div class="header"&gt;
-      &lt;el-form :inline="true" :model="searchForm" class="search-form"&gt;
-        &lt;el-form-item label="设备ID"&gt;
-          &lt;el-input v-model="searchForm.deviceId" placeholder="搜索设备ID" clearable /&gt;
-        &lt;/el-form-item&gt;
-        &lt;el-form-item label="用户ID"&gt;
-          &lt;el-input v-model="searchForm.userId" placeholder="搜索用户ID" clearable /&gt;
-        &lt;/el-form-item&gt;
-        &lt;el-form-item label="设备类型"&gt;
-          &lt;el-select v-model="searchForm.osType" placeholder="选择设备类型" clearable&gt;
-            &lt;el-option label="iOS" value="iOS" /&gt;
-            &lt;el-option label="Android" value="Android" /&gt;
-            &lt;el-option label="Web" value="Web" /&gt;
-          &lt;/el-select&gt;
-        &lt;/el-form-item&gt;
-        &lt;el-form-item label="在线状态"&gt;
-          &lt;el-select v-model="searchForm.online" placeholder="选择在线状态" clearable&gt;
-            &lt;el-option label="在线" :value="true" /&gt;
-            &lt;el-option label="离线" :value="false" /&gt;
-          &lt;/el-select&gt;
-        &lt;/el-form-item&gt;
-        &lt;el-form-item&gt;
-          &lt;el-button type="primary" @click="handleSearch"&gt;
-            &lt;el-icon&gt;&lt;Search /&gt;&lt;/el-icon&gt;
+<template>
+  <div class="devices-container">
+    <div class="header">
+      <el-form :inline="true" :model="searchForm" class="search-form">
+        <el-form-item label="设备ID">
+          <el-input v-model="searchForm.deviceId" placeholder="搜索设备ID" clearable />
+        </el-form-item>
+        <el-form-item label="用户ID">
+          <el-input v-model="searchForm.userId" placeholder="搜索用户ID" clearable />
+        </el-form-item>
+        <el-form-item label="设备类型">
+          <el-select v-model="searchForm.osType" placeholder="选择设备类型" clearable>
+            <el-option label="iOS" value="iOS" />
+            <el-option label="Android" value="Android" />
+            <el-option label="Web" value="Web" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="在线状态">
+          <el-select v-model="searchForm.online" placeholder="选择在线状态" clearable>
+            <el-option label="在线" :value="true" />
+            <el-option label="离线" :value="false" />
+          </el-select>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="handleSearch">
+            <el-icon><Search /></el-icon>
             搜索
-          &lt;/el-button&gt;
-          &lt;el-button @click="resetSearch"&gt;重置&lt;/el-button&gt;
-        &lt;/el-form-item&gt;
-      &lt;/el-form&gt;
-    &lt;/div&gt;
+          </el-button>
+          <el-button @click="resetSearch">重置</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
 
-    &lt;el-table
+    <el-table
       v-loading="loading"
       :data="deviceList"
       border
       style="width: 100%"
-    &gt;
-      &lt;el-table-column prop="deviceId" label="设备ID" width="180" /&gt;
-      &lt;el-table-column prop="userId" label="用户ID" width="100" /&gt;
-      &lt;el-table-column prop="deviceName" label="设备名称" /&gt;
-      &lt;el-table-column prop="deviceModel" label="设备型号" /&gt;
-      &lt;el-table-column prop="osType" label="系统类型" width="100"&gt;
-        &lt;template #default="{ row }"&gt;
-          &lt;el-tag :type="getOsTypeTagType(row.osType)"&gt;
+    >
+      <el-table-column prop="deviceId" label="设备ID" width="180" />
+      <el-table-column prop="userId" label="用户ID" width="100" />
+      <el-table-column prop="deviceName" label="设备名称" />
+      <el-table-column prop="deviceModel" label="设备型号" />
+      <el-table-column prop="osType" label="系统类型" width="100">
+        <template #default="{ row }">
+          <el-tag :type="getOsTypeTagType(row.osType)">
             {{ row.osType }}
-          &lt;/el-tag&gt;
-        &lt;/template&gt;
-      &lt;/el-table-column&gt;
-      &lt;el-table-column prop="osVersion" label="系统版本" width="100" /&gt;
-      &lt;el-table-column prop="appVersion" label="APP版本" width="100" /&gt;
-      &lt;el-table-column label="在线状态" width="100"&gt;
-        &lt;template #default="{ row }"&gt;
-          &lt;el-tag :type="row.online ? 'success' : 'info'"&gt;
+          </el-tag>
+        </template>
+      </el-table-column>
+      <el-table-column prop="osVersion" label="系统版本" width="100" />
+      <el-table-column prop="appVersion" label="APP版本" width="100" />
+      <el-table-column label="在线状态" width="100">
+        <template #default="{ row }">
+          <el-tag :type="row.online ? 'success' : 'info'">
             {{ row.online ? '在线' : '离线' }}
-          &lt;/el-tag&gt;
-        &lt;/template&gt;
-      &lt;/el-table-column&gt;
-      &lt;el-table-column prop="lastLoginIp" label="最后登录IP" width="140" /&gt;
-      &lt;el-table-column prop="lastActiveTime" label="最后活跃时间" width="180" /&gt;
-      &lt;el-table-column label="操作" width="150" fixed="right"&gt;
-        &lt;template #default="{ row }"&gt;
-          &lt;el-button-group&gt;
-            &lt;el-button
+          </el-tag>
+        </template>
+      </el-table-column>
+      <el-table-column prop="lastLoginIp" label="最后登录IP" width="140" />
+      <el-table-column prop="lastActiveTime" label="最后活跃时间" width="180" />
+      <el-table-column label="操作" width="150" fixed="right">
+        <template #default="{ row }">
+          <el-button-group>
+            <el-button
               type="primary"
               link
               @click="handleViewDetails(row)"
-            &gt;
+            >
               详情
-            &lt;/el-button&gt;
-            &lt;el-button
+            </el-button>
+            <el-button
               type="danger"
               link
               @click="handleForceOffline(row)"
               :disabled="!row.online"
-            &gt;
+            >
               强制下线
-            &lt;/el-button&gt;
-          &lt;/el-button-group&gt;
-        &lt;/template&gt;
-      &lt;/el-table-column&gt;
-    &lt;/el-table&gt;
+            </el-button>
+          </el-button-group>
+        </template>
+      </el-table-column>
+    </el-table>
 
-    &lt;div class="pagination"&gt;
-      &lt;el-pagination
+    <div class="pagination">
+      <el-pagination
         v-model:current-page="currentPage"
         v-model:page-size="pageSize"
         :total="total"
@@ -91,49 +91,49 @@
         layout="total, sizes, prev, pager, next"
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
-      /&gt;
-    &lt;/div&gt;
+      />
+    </div>
 
-    &lt;el-dialog
+    <el-dialog
       v-model="detailsDialogVisible"
       title="设备详情"
       width="600px"
-    &gt;
-      &lt;el-descriptions :column="2" border&gt;
-        &lt;el-descriptions-item label="设备ID"&gt;{{ selectedDevice.deviceId }}&lt;/el-descriptions-item&gt;
-        &lt;el-descriptions-item label="用户ID"&gt;{{ selectedDevice.userId }}&lt;/el-descriptions-item&gt;
-        &lt;el-descriptions-item label="设备名称"&gt;{{ selectedDevice.deviceName }}&lt;/el-descriptions-item&gt;
-        &lt;el-descriptions-item label="设备型号"&gt;{{ selectedDevice.deviceModel }}&lt;/el-descriptions-item&gt;
-        &lt;el-descriptions-item label="系统类型"&gt;{{ selectedDevice.osType }}&lt;/el-descriptions-item&gt;
-        &lt;el-descriptions-item label="系统版本"&gt;{{ selectedDevice.osVersion }}&lt;/el-descriptions-item&gt;
-        &lt;el-descriptions-item label="APP版本"&gt;{{ selectedDevice.appVersion }}&lt;/el-descriptions-item&gt;
-        &lt;el-descriptions-item label="在线状态"&gt;
-          &lt;el-tag :type="selectedDevice.online ? 'success' : 'info'"&gt;
+    >
+      <el-descriptions :column="2" border>
+        <el-descriptions-item label="设备ID">{{ selectedDevice.deviceId }}</el-descriptions-item>
+        <el-descriptions-item label="用户ID">{{ selectedDevice.userId }}</el-descriptions-item>
+        <el-descriptions-item label="设备名称">{{ selectedDevice.deviceName }}</el-descriptions-item>
+        <el-descriptions-item label="设备型号">{{ selectedDevice.deviceModel }}</el-descriptions-item>
+        <el-descriptions-item label="系统类型">{{ selectedDevice.osType }}</el-descriptions-item>
+        <el-descriptions-item label="系统版本">{{ selectedDevice.osVersion }}</el-descriptions-item>
+        <el-descriptions-item label="APP版本">{{ selectedDevice.appVersion }}</el-descriptions-item>
+        <el-descriptions-item label="在线状态">
+          <el-tag :type="selectedDevice.online ? 'success' : 'info'">
             {{ selectedDevice.online ? '在线' : '离线' }}
-          &lt;/el-tag&gt;
-        &lt;/el-descriptions-item&gt;
-        &lt;el-descriptions-item label="最后登录IP"&gt;{{ selectedDevice.lastLoginIp }}&lt;/el-descriptions-item&gt;
-        &lt;el-descriptions-item label="最后活跃时间"&gt;{{ selectedDevice.lastActiveTime }}&lt;/el-descriptions-item&gt;
-        &lt;el-descriptions-item label="推送Token" :span="2"&gt;{{ selectedDevice.pushToken || '无' }}&lt;/el-descriptions-item&gt;
-      &lt;/el-descriptions&gt;
+          </el-tag>
+        </el-descriptions-item>
+        <el-descriptions-item label="最后登录IP">{{ selectedDevice.lastLoginIp }}</el-descriptions-item>
+        <el-descriptions-item label="最后活跃时间">{{ selectedDevice.lastActiveTime }}</el-descriptions-item>
+        <el-descriptions-item label="推送Token" :span="2">{{ selectedDevice.pushToken || '无' }}</el-descriptions-item>
+      </el-descriptions>
 
-      &lt;template #footer&gt;
-        &lt;span class="dialog-footer"&gt;
-          &lt;el-button @click="detailsDialogVisible = false"&gt;关闭&lt;/el-button&gt;
-          &lt;el-button
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="detailsDialogVisible = false">关闭</el-button>
+          <el-button
             type="danger"
             @click="handleForceOffline(selectedDevice)"
             :disabled="!selectedDevice.online"
-          &gt;
+          >
             强制下线
-          &lt;/el-button&gt;
-        &lt;/span&gt;
-      &lt;/template&gt;
-    &lt;/el-dialog&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+          </el-button>
+        </span>
+      </template>
+    </el-dialog>
+  </div>
+</template>
 
-&lt;script setup&gt;
+<script setup>
 import { ref, reactive } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { Search } from '@element-plus/icons-vue'
@@ -247,9 +247,9 @@ const getOsTypeTagType = (osType) => {
 
 // 初始化
 fetchDeviceList()
-&lt;/script&gt;
+</script>
 
-&lt;style scoped&gt;
+<style scoped>
 .devices-container {
   padding: 20px;
 }
@@ -269,4 +269,4 @@ fetchDeviceList()
   display: flex;
   justify-content: flex-end;
 }
-&lt;/style&gt;
+</style>
