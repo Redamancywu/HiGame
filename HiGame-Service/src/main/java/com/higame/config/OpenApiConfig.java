@@ -42,8 +42,9 @@ public class OpenApiConfig {
     public GroupedOpenApi publicApi() {
         return GroupedOpenApi.builder()
                 .group("higame-public")
-                .pathsToMatch("/api/**")
+                .pathsToMatch("/**")
                 .packagesToScan("com.higame.account.controller", "com.higame.core.controller")
+                .addOpenApiCustomizer(openApi -> openApi.info(new Info().title("HiGame SDK 公共API").version("1.0.0")))
                 .build();
     }
 
@@ -53,6 +54,7 @@ public class OpenApiConfig {
                 .group("higame-admin")
                 .pathsToMatch("/admin/**")
                 .packagesToScan("com.higame.admin.controller", "com.higame.management.controller")
+                .addOpenApiCustomizer(openApi -> openApi.info(new Info().title("HiGame SDK 管理API").version("1.0.0")))
                 .build();
     }
 }

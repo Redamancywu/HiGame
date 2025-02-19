@@ -1,11 +1,13 @@
 package com.higame.account.service;
 
+import com.higame.account.dto.RegisterRequest;
 import com.higame.dto.LoginRequest;
-import com.higame.dto.RegisterRequest;
 import com.higame.dto.UserDTO;
 import com.higame.entity.User;
-import com.higame.entity.User.UserStatus;
 import com.higame.entity.UserDevice;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 public interface UserService {
@@ -16,8 +18,11 @@ public interface UserService {
     UserDTO registerSimple(String username, String password);
     
     // 用户登录
+    ResponseEntity<?> login(String username, String password);
+
+    @Transactional
     UserDTO login(LoginRequest request, String ipAddress);
-    
+
     // 用户登出
     void logout(Long userId, String deviceId);
     
@@ -40,7 +45,7 @@ public interface UserService {
     UserDTO updateUserInfo(Long userId, UserDTO userDTO);
     
     // 获取用户信息
-    UserDTO getUserInfo(Long userId);
+    ResponseEntity<?> getUserInfo(Long userId);
     
     // 获取用户设备列表
     List<UserDevice> getUserDevices(Long userId);
@@ -50,16 +55,32 @@ public interface UserService {
     
     // 启用/禁用双重认证
     void toggleTwoFactorAuth(Long userId, boolean enable);
-    
-    // 更新用户状态
-    void updateUserStatus(Long userId, UserStatus status, String reason, Integer banDays);
-    
+
     // 绑定第三方账号
+    ResponseEntity<?> bindThirdParty(String platform, String authCode);
+
+    @Transactional
+    void updateUserStatus(Long userId, User.UserStatus status, String reason, Integer banDays);
+
+    @Transactional
     void bindThirdPartyAccount(Long userId, String platform, String thirdPartyId);
-    
+
     // 解绑第三方账号
     void unbindThirdPartyAccount(Long userId, String type);
     
     // 第三方登录
     UserDTO loginWithThirdParty(String type, String thirdPartyToken, String deviceId);
+
+    User getUserById(Long id);
+
+    User getUserByUsername(String username);
+
+    User getUserByEmail(String email);
+
+    User getUserByPhone(String phone);
+
+    void updateUser(User user);
+
+
+    void deleteUser(Long id);
 }

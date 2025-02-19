@@ -8,60 +8,49 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
-import java.util.Arrays;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-            .authorizeHttpRequests(authz -> authz
-                .requestMatchers(
-                    "/v3/api-docs",
-                    "/v3/api-docs/**",
-                    "/v3/api-docs.yaml",
-                    "/swagger-ui/**",
-                    "/swagger-ui.html",
-                    "/swagger-resources",
-                    "/swagger-resources/**",
-                    "/configuration/ui",
-                    "/configuration/security",
-                    "/webjars/**",
-                    "/swagger-ui/index.html",
-                    "/api-docs/**",
-                    "/swagger-config/**"
-                ).permitAll()
-                .requestMatchers("/api/v1/user/register", "/api/v1/user/login", "/api/v1/user/register/simple").permitAll()
-                .anyRequest().authenticated()
-            )
+            .cors(cors -> {})  // 使用共享的 CORS 配置
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .httpBasic();
+            .authorizeHttpRequests(authz -> authz
+                // Swagger UI
+                .requestMatchers(
+                    "/v3/api-docs/**",
+                    "/swagger-ui/**",
+                    "/swagger-ui.html",
+                    "/swagger-resources/**",
+                    "/webjars/**"
+                ).permitAll()
+                // Public APIs
+                .requestMatchers(
+                    "/api/v1/user/register",
+                    "/api/v1/user/register/simple",
+                    "/api/v1/user/login",
+                    "/v1/admin/login",     // 添加不带 /api 前缀的路径
+                    "/api/v1/admin/login"  // 保留带 /api 前缀的路径
+                ).permitAll()
+                // Admin APIs
+                .requestMatchers(
+                    new AntPathRequestMatcher("/api/v1/admin/**"),
+                    new AntPathRequestMatcher("/v1/admin/**")  // 添加不带 /api 前缀的路径
+                ).hasRole("ADMIN")
+                .anyRequest().authenticated()
+            )
+            .httpBasic(basic -> basic.disable());
+        
         return http.build();
     }
 
     @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("*"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        configuration.setAllowedHeaders(Arrays.asList("*"));
-        configuration.setExposedHeaders(Arrays.asList("Authorization"));
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

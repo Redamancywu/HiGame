@@ -1,15 +1,38 @@
 server:
   port: 8080
+  servlet:
+    context-path: /api
 
 spring:
+  application:
+    name: HiGame-Service
   # MySQL配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/higame_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: sx991026
-  
-  # Redis配置
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+    open-in-view: false
+
   data:
     redis:
       host: localhost
@@ -24,14 +47,6 @@ spring:
           max-idle: 8
           min-idle: 0
 
-  # JPA配置
-  jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-
-  # 邮件服务配置
   mail:
     host: smtp.gmail.com
     port: 587
@@ -43,6 +58,40 @@ spring:
           auth: true
           starttls:
             enable: true
+
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
+
+# 文件存储配置
+file:
+  upload-dir: ./uploads
+
+# 跨域配置
+cors:
+  allowed-origins: "*"
+  allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+  allowed-headers: "*"
+  exposed-headers:
+    - Authorization
+    - Refresh-Token
+  allow-credentials: true
+  max-age: 3600
+
+# JWT配置
+jwt:
+  secret: your-secret-key
+  expiration: 86400000  # 24 hours in milliseconds
+  base64-secret: ${JWT_SECRET:UkXp2s5v8y/B?E(H+MbQeThWmZq3t6w9z$C&F)J@NcRfUjXn2r5u8x/A%D*G-Ka}  # 使用安全的Base64编码密钥
+  access-token-expiration: 3600  # 访问令牌过期时间（秒）
+  refresh-token-expiration: 604800  # 刷新令牌过期时间（秒）
+  issuer: HiGame
+  token-type: Bearer
+  header-name: Authorization
+  refresh-header-name: Refresh-Token
 
 # 阿里云短信服务配置
 aliyun:
@@ -71,3 +120,17 @@ springdoc:
     display-request-duration: true
   packages-to-scan: com.higame
   show-actuator: false
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.higame: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  file:
+    name: logs/spring.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

@@ -2,8 +2,6 @@ package com.higame.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,7 +19,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String username;
 
     @Column(unique = true)
@@ -30,56 +28,66 @@ public class User implements UserDetails {
     @Column(unique = true)
     private String phone;
 
+    @Column(nullable = false)
     private String password;
 
     private String nickname;
 
     private String avatar;
 
-    private String gender;
-
-    public enum RegisterType {
-        SIMPLE,
-        EMAIL,
-        PHONE,
-        THIRD_PARTY
-    }
-
+    @Column(name = "register_type", nullable = false)
     @Enumerated(EnumType.STRING)
-    @Column(name = "register_type")
-    private RegisterType registerType;
+    private RegisterType registerType = RegisterType.SIMPLE;
+
+    @Column(name = "user_type", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private UserType userType = UserType.APP;
+
+    private String gender;
 
     private LocalDateTime birthday;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserStatus status = UserStatus.ACTIVE;
 
+    @Column(name = "ban_reason")
     private String banReason;
 
+    @Column(name = "ban_expire_time")
     private LocalDateTime banExpireTime;
 
-    private boolean emailVerified;
+    @Column(name = "email_verified")
+    private boolean emailVerified = false;
 
-    private boolean phoneVerified;
+    @Column(name = "phone_verified")
+    private boolean phoneVerified = false;
 
-    private boolean twoFactorEnabled;
+    @Column(name = "two_factor_enabled")
+    private boolean twoFactorEnabled = false;
 
+    @Column(name = "two_factor_secret")
     private String twoFactorSecret;
 
+    @Column(name = "security_question")
     private String securityQuestion;
 
+    @Column(name = "security_answer")
     private String securityAnswer;
 
-    private int loginFailCount;
+    @Column(name = "login_fail_count")
+    private Integer loginFailCount = 0;
 
+    @Column(name = "last_login_time")
     private LocalDateTime lastLoginTime;
 
+    @Column(name = "last_login_ip")
     private String lastLoginIp;
 
-    @CreationTimestamp
+    @Column(name = "create_time", updatable = false)
     private LocalDateTime createTime;
 
-    @UpdateTimestamp
+    @Column(name = "update_time")
     private LocalDateTime updateTime;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -87,6 +95,46 @@ public class User implements UserDetails {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<ThirdPartyAccount> thirdPartyAccounts;
+
+    @PrePersist
+    protected void onCreate() {
+        createTime = LocalDateTime.now();
+        updateTime = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updateTime = LocalDateTime.now();
+    }
+
+    public enum UserStatus {
+        ACTIVE(0, "active"),
+        BANNED(1, "banned"),
+        DELETED(2, "deleted");
+
+        private final int code;
+        private final String desc;
+
+        UserStatus(int code, String desc) {
+            this.code = code;
+            this.desc = desc;
+        }
+
+        public int getCode() {
+            return code;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+    }
+
+    public enum RegisterType {
+        SIMPLE,
+        EMAIL,
+        PHONE,
+        THIRD_PARTY
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -100,7 +148,8 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return status != UserStatus.BANNED;
+        return status != UserStatus.BANNED || 
+               (banExpireTime != null && LocalDateTime.now().isAfter(banExpireTime));
     }
 
     @Override
@@ -111,11 +160,5 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return status == UserStatus.ACTIVE;
-    }
-
-    public enum UserStatus {
-        ACTIVE,
-        BANNED,
-        DISABLED
     }
 }

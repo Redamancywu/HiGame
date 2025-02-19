@@ -1,9 +1,12 @@
 package com.higame.repository;
 
 import com.higame.entity.UserDevice;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
@@ -12,25 +15,26 @@ import java.util.Optional;
 
 @Repository
 public interface UserDeviceRepository extends JpaRepository<UserDevice, Long> {
+    Optional<UserDevice> findByDeviceId(String deviceId);
     List<UserDevice> findByUserId(Long userId);
-    
     Optional<UserDevice> findByUserIdAndDeviceId(Long userId, String deviceId);
-    
     Optional<UserDevice> findByRefreshToken(String refreshToken);
+    boolean existsByDeviceId(String deviceId);
+    
+    @Query("SELECT ud FROM UserDevice ud WHERE ud.user.id = :userId AND ud.online = true")
+    List<UserDevice> findOnlineDevicesByUserId(@Param("userId") Long userId);
     
     @Modifying
-    @Query("UPDATE UserDevice d SET d.isOnline = true, d.lastActiveTime = ?2, d.lastLoginIp = ?3, d.refreshToken = ?4 WHERE d.id = ?1")
-    void updateDeviceLogin(Long deviceId, LocalDateTime lastActiveTime, String lastLoginIp, String refreshToken);
+    @Query("UPDATE UserDevice ud SET ud.online = :online, ud.lastActiveTime = :activeTime WHERE ud.id = :deviceId")
+    void updateOnlineStatus(@Param("deviceId") Long deviceId, 
+                           @Param("online") boolean online, 
+                           @Param("activeTime") LocalDateTime activeTime);
     
     @Modifying
-    @Query("UPDATE UserDevice d SET d.isOnline = false WHERE d.id = ?1")
-    void updateDeviceLogout(Long deviceId);
+    @Query("UPDATE UserDevice ud SET ud.refreshToken = :token WHERE ud.id = :deviceId")
+    void updateRefreshToken(@Param("deviceId") Long deviceId, @Param("token") String token);
     
-    @Modifying
-    @Query("UPDATE UserDevice d SET d.isOnline = false WHERE d.user.id = ?1 AND d.id != ?2")
-    void logoutOtherDevices(Long userId, Long currentDeviceId);
+    Page<UserDevice> findByUserIdOrderByLastActiveTimeDesc(Long userId, Pageable pageable);
     
-    @Modifying
-    @Query("UPDATE UserDevice d SET d.pushToken = ?2 WHERE d.id = ?1")
-    void updatePushToken(Long deviceId, String pushToken);
+    void deleteByLastActiveTimeBefore(LocalDateTime dateTime);
 }
