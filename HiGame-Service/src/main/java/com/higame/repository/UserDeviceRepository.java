@@ -37,4 +37,7 @@ public interface UserDeviceRepository extends JpaRepository<UserDevice, Long> {
     Page<UserDevice> findByUserIdOrderByLastActiveTimeDesc(Long userId, Pageable pageable);
     
     void deleteByLastActiveTimeBefore(LocalDateTime dateTime);
+
+    @Query("SELECT COUNT(d) FROM UserDevice d WHERE d.online = true")
+    long countByOnlineTrue();
 }

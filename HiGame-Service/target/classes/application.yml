@@ -134,3 +134,9 @@ logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
     file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+admin:
+  default:
+    username: admin
+    password: ${ADMIN_PASSWORD:sx991026@.}
+    role: SUPER_ADMIN

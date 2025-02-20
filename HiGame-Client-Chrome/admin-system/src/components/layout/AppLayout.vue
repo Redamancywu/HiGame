@@ -43,9 +43,9 @@
               </span>
               <template #dropdown>
                 <el-dropdown-menu>
-                  <el-dropdown-item>个人信息</el-dropdown-item>
-                  <el-dropdown-item>修改密码</el-dropdown-item>
-                  <el-dropdown-item divided>退出登录</el-dropdown-item>
+                  <el-dropdown-item @click="handleUserInfo">个人信息</el-dropdown-item>
+                  <el-dropdown-item @click="handleChangePassword">修改密码</el-dropdown-item>
+                  <el-dropdown-item divided @click="handleLogout">退出登录</el-dropdown-item>
                 </el-dropdown-menu>
               </template>
             </el-dropdown>
@@ -61,10 +61,12 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { DataLine, User, Monitor, Setting } from '@element-plus/icons-vue'
+import { ElMessageBox } from 'element-plus'
 
 const route = useRoute()
+const router = useRouter()
 const activeMenu = computed(() => route.path)
 const currentPath = computed(() => {
   const pathMap = {
@@ -78,6 +80,30 @@ const currentPath = computed(() => {
 
 const userAvatar = ref('https://api.higame.com/static/default-avatar.png')
 const userName = ref('管理员')
+
+// 处理个人信息
+const handleUserInfo = () => {
+  router.push('/settings')
+}
+
+// 处理修改密码
+const handleChangePassword = () => {
+  router.push('/settings')
+}
+
+// 处理退出登录
+const handleLogout = () => {
+  ElMessageBox.confirm('确认退出登录吗？', '提示', {
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    type: 'warning'
+  }).then(() => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('username')
+    localStorage.removeItem('role')
+    router.push('/login')
+  })
+}
 </script>
 
 <style scoped>

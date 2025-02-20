@@ -3,42 +3,50 @@
     <el-card>
       <template #header>
         <div class="card-header">
-          <span>个人设置</span>
+          <span>系统设置</span>
         </div>
       </template>
       
-      <el-form
+      <el-form 
         ref="formRef"
         :model="formData"
         :rules="formRules"
-        label-width="100px"
+        label-width="120px"
       >
-        <el-form-item label="用户名" prop="username">
-          <el-input v-model="formData.username" disabled />
+        <el-form-item label="站点名称" prop="siteName">
+          <el-input v-model="formData.siteName" />
         </el-form-item>
         
-        <el-form-item label="邮箱" prop="email">
-          <el-input v-model="formData.email" />
+        <el-form-item label="站点描述" prop="siteDescription">
+          <el-input type="textarea" v-model="formData.siteDescription" />
         </el-form-item>
         
-        <el-form-item label="手机号" prop="phone">
-          <el-input v-model="formData.phone" />
+        <el-form-item label="管理员邮箱" prop="adminEmail">
+          <el-input v-model="formData.adminEmail" />
         </el-form-item>
         
-        <el-form-item label="旧密码" prop="oldPassword">
-          <el-input v-model="formData.oldPassword" type="password" show-password />
+        <el-form-item label="开放注册" prop="enableRegistration">
+          <el-switch v-model="formData.enableRegistration" />
         </el-form-item>
         
-        <el-form-item label="新密码" prop="newPassword">
-          <el-input v-model="formData.newPassword" type="password" show-password />
+        <el-form-item label="邮箱验证" prop="enableEmailVerification">
+          <el-switch v-model="formData.enableEmailVerification" />
         </el-form-item>
         
-        <el-form-item label="确认密码" prop="confirmPassword">
-          <el-input v-model="formData.confirmPassword" type="password" show-password />
+        <el-form-item label="会话超时(分钟)" prop="sessionTimeout">
+          <el-input-number v-model="formData.sessionTimeout" :min="1" :max="1440" />
+        </el-form-item>
+        
+        <el-form-item label="主题" prop="theme">
+          <el-select v-model="formData.theme">
+            <el-option label="默认主题" value="default" />
+            <el-option label="暗色主题" value="dark" />
+            <el-option label="浅色主题" value="light" />
+          </el-select>
         </el-form-item>
         
         <el-form-item>
-          <el-button type="primary" @click="handleSubmit">保存修改</el-button>
+          <el-button type="primary" @click="handleSubmit">保存设置</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -46,117 +54,70 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
-import { updateUserProfile, updatePassword } from '../api/user'
+import { getSettings, updateSettings } from '../api/settings'
 
 const formRef = ref(null)
-const formData = reactive({
-  username: 'admin',
-  email: 'admin@higame.com',
-  phone: '',
-  oldPassword: '',
-  newPassword: '',
-  confirmPassword: ''
+const formData = ref({
+  siteName: '',
+  siteDescription: '',
+  adminEmail: '',
+  enableRegistration: true,
+  enableEmailVerification: false,
+  sessionTimeout: 30,
+  theme: 'default'
 })
 
 const formRules = {
-  email: [
-    { required: true, message: '请输入邮箱', trigger: 'blur' },
+  siteName: [
+    { required: true, message: '请输入站点名称', trigger: 'blur' }
+  ],
+  adminEmail: [
+    { required: true, message: '请输入管理员邮箱', trigger: 'blur' },
     { type: 'email', message: '请输入正确的邮箱格式', trigger: 'blur' }
   ],
-  phone: [
-    { pattern: /^1[3-9]\d{9}$/, message: '请输入正确的手机号格式', trigger: 'blur' }
-  ],
-  oldPassword: [
-    { required: true, message: '请输入旧密码', trigger: 'blur' }
-  ],
-  newPassword: [
-    { required: true, message: '请输入新密码', trigger: 'blur' },
-    { min: 6, message: '密码长度不能小于6位', trigger: 'blur' }
-  ],
-  confirmPassword: [
-    { required: true, message: '请确认新密码', trigger: 'blur' },
-    {
-      validator: (rule, value, callback) => {
-        if (value !== formData.newPassword) {
-          callback(new Error('两次输入的密码不一致'))
-        } else {
-          callback()
-        }
-      },
-      trigger: 'blur'
-    }
+  sessionTimeout: [
+    { required: true, message: '请输入会话超时时间', trigger: 'blur' }
   ]
 }
 
-const systemSettings = reactive({
-  language: 'zh-CN',
-  theme: 'light',
-  notifications: true
-})
+// 获取设置
+const fetchSettings = async () => {
+  try {
+    const response = await getSettings()
+    formData.value = response.data
+  } catch (error) {
+    console.error('获取设置失败:', error)
+    ElMessage.error('获取设置失败')
+  }
+}
 
-// 保存个人信息
+// 提交设置
 const handleSubmit = async () => {
   if (!formRef.value) return
   
   await formRef.value.validate(async (valid) => {
     if (valid) {
       try {
-        // 更新个人信息
-        if (formData.email || formData.phone) {
-          await updateUserProfile({
-            email: formData.email,
-            phone: formData.phone
-          })
-        }
-        
-        // 修改密码
-        if (formData.oldPassword && formData.newPassword) {
-          await updatePassword({
-            oldPassword: formData.oldPassword,
-            newPassword: formData.newPassword
-          })
-          
-          // 清空密码字段
-          formData.oldPassword = ''
-          formData.newPassword = ''
-          formData.confirmPassword = ''
-        }
-        
-        ElMessage.success('保存成功')
+        await updateSettings(formData.value)
+        ElMessage.success('设置更新成功')
       } catch (error) {
-        console.error('Failed to save settings:', error)
+        console.error('更新设置失败:', error)
+        ElMessage.error('更新设置失败')
       }
     }
   })
 }
 
-// 保存系统设置
-const handleSaveSystemSettings = () => {
-  localStorage.setItem('systemSettings', JSON.stringify(systemSettings))
-  ElMessage.success('系统设置保存成功')
-}
-
-// 初始化系统设置
-const initSystemSettings = () => {
-  const savedSettings = localStorage.getItem('systemSettings')
-  if (savedSettings) {
-    Object.assign(systemSettings, JSON.parse(savedSettings))
-  }
-}
-
-// 初始化
-initSystemSettings()
+onMounted(() => {
+  fetchSettings()
+})
 </script>
 
 <style scoped>
 .settings-container {
   padding: 20px;
-}
-
-.mt-4 {
-  margin-top: 16px;
 }
 
 .card-header {

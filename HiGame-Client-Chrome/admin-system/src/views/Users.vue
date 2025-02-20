@@ -148,7 +148,8 @@ import {
   getUserList,
   createUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  updateUserStatus
 } from '../api/user'
 
 // 列表相关
@@ -260,14 +261,14 @@ const handleSubmit = async () => {
           await createUser(formData)
           ElMessage.success('创建成功')
         } else {
-          await updateUser(formData)
+          await updateUser(formData.id, formData)
           ElMessage.success('更新成功')
         }
         dialogVisible.value = false
         fetchUserList()
       } catch (error) {
         console.error('操作失败:', error)
-        ElMessage.error('操作失败')
+        ElMessage.error(error.response?.data?.message || '操作失败')
       }
     }
   })
@@ -276,10 +277,7 @@ const handleSubmit = async () => {
 // 启用/禁用
 const handleToggleStatus = async (row) => {
   try {
-    await updateUser({
-      ...row,
-      status: row.status === 'ACTIVE' ? 'INACTIVE' : 'ACTIVE'
-    })
+    await updateUserStatus(row.id, row.status === 'ACTIVE' ? 'INACTIVE' : 'ACTIVE')
     ElMessage.success('操作成功')
     fetchUserList()
   } catch (error) {

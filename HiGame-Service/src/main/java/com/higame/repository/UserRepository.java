@@ -26,14 +26,19 @@ public interface UserRepository extends JpaRepository<User, Long> {
     
     boolean existsByPhone(String phone);
     
-    @Query("SELECT COUNT(u) FROM User u WHERE u.userType = :userType")
-    long countByUserType(@Param("userType") UserType userType);
+    long countByUserType(UserType userType);
+    
+    @Query("SELECT COUNT(u) FROM User u WHERE DATE(u.lastLoginTime) = :date")
+    long countActiveUsersByDate(LocalDate date);
+    
+    @Query("SELECT COUNT(u) FROM User u WHERE DATE(u.createTime) = :date")
+    long countNewUsersByDate(LocalDate date);
     
     @Query("SELECT COUNT(u) FROM User u WHERE u.userType = :userType AND DATE(u.lastLoginTime) = :date")
-    long countActiveUsersByType(@Param("userType") UserType userType, @Param("date") LocalDate date);
+    Integer countActiveUsersByType(@Param("userType") UserType userType, @Param("date") LocalDate date);
     
     @Query("SELECT COUNT(u) FROM User u WHERE u.userType = :userType AND DATE(u.createTime) = :date")
-    long countNewUsersByType(@Param("userType") UserType userType, @Param("date") LocalDate date);
+    Integer countNewUsersByType(@Param("userType") UserType userType, @Param("date") LocalDate date);
     
     @Modifying
     @Query("UPDATE User u SET u.status = :status, u.banReason = :reason, u.banExpireTime = :expireTime WHERE u.id = :userId")
