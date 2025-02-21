@@ -3,6 +3,22 @@ CREATE DATABASE IF NOT EXISTS `higame_db` DEFAULT CHARACTER SET utf8mb4 COLLATE 
 
 USE `higame_db`;
 
+-- 创建管理员表
+CREATE TABLE IF NOT EXISTS `admins` (
+    `id` BIGINT PRIMARY KEY AUTO_INCREMENT,
+    `username` VARCHAR(50) NOT NULL UNIQUE,
+    `password` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(100),
+    `phone` VARCHAR(20),
+    `role` VARCHAR(20) NOT NULL DEFAULT 'ADMIN',
+    `enabled` BOOLEAN DEFAULT TRUE,
+    `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `last_login_time` DATETIME,
+    `last_logout_time` DATETIME,
+    `last_login_ip` VARCHAR(50)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- 创建用户表
 CREATE TABLE IF NOT EXISTS `users` (
     `id` BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -12,10 +28,11 @@ CREATE TABLE IF NOT EXISTS `users` (
     `phone` VARCHAR(20) UNIQUE,
     `nickname` VARCHAR(50),
     `avatar` VARCHAR(255),
-    `register_type` VARCHAR(20) NOT NULL DEFAULT 'simple' COMMENT 'simple/email/phone/third_party',
+    `register_type` VARCHAR(20) NOT NULL DEFAULT 'simple',
+    `user_type` VARCHAR(10) NOT NULL DEFAULT 'APP',
     `gender` VARCHAR(10),
     `birthday` DATETIME,
-    `status` VARCHAR(20) NOT NULL DEFAULT 'ACTIVE',
+    `status` VARCHAR(50) NOT NULL DEFAULT 'ACTIVE',
     `ban_reason` VARCHAR(255),
     `ban_expire_time` DATETIME,
     `email_verified` BOOLEAN DEFAULT FALSE,
@@ -28,10 +45,7 @@ CREATE TABLE IF NOT EXISTS `users` (
     `last_login_time` DATETIME,
     `last_login_ip` VARCHAR(50),
     `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    INDEX `idx_phone` (`phone`),
-    INDEX `idx_email` (`email`),
-    INDEX `idx_username` (`username`)
+    `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- 创建用户设备表
@@ -48,12 +62,23 @@ CREATE TABLE IF NOT EXISTS `user_devices` (
     `refresh_token` VARCHAR(255),
     `last_active_time` DATETIME,
     `last_login_ip` VARCHAR(50),
-    `is_online` BOOLEAN DEFAULT FALSE,
+    `online` BOOLEAN DEFAULT FALSE,
     `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    UNIQUE KEY `uk_user_device` (`user_id`, `device_id`),
-    INDEX `idx_device_id` (`device_id`)
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 创建用户统计表
+CREATE TABLE IF NOT EXISTS `user_statistics` (
+    `id` BIGINT PRIMARY KEY AUTO_INCREMENT,
+    `user_type` VARCHAR(10) NOT NULL COMMENT 'SDK/APP',
+    `total_users` INT NOT NULL DEFAULT 0,
+    `active_users` INT NOT NULL DEFAULT 0,
+    `new_users` INT NOT NULL DEFAULT 0,
+    `date` DATE NOT NULL,
+    `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UNIQUE KEY `uk_type_date` (`user_type`, `date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- 创建第三方账号表

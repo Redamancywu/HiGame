@@ -1,5 +1,6 @@
 package com.higame.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -8,44 +9,63 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.cors.CorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
+    @Autowired
+    private CorsConfigurationSource corsConfigurationSource;
+
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .cors(cors -> {})  // 使用共享的 CORS 配置
             .csrf(csrf -> csrf.disable())
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .authorizeHttpRequests(authz -> authz
-                // Swagger UI
+            .cors(cors -> cors.configurationSource(corsConfigurationSource))
+            .authorizeHttpRequests(auth -> auth
+                // 登录相关接口
                 .requestMatchers(
-                    "/v3/api-docs/**",
-                    "/swagger-ui/**",
+                    "/api/v1/admin/login",
+                    "/v1/admin/login"
+                ).permitAll()
+                // Swagger UI 接口
+                .requestMatchers(
                     "/swagger-ui.html",
+                    "/swagger-ui/**",
+                    "/v3/api-docs/**",
                     "/swagger-resources/**",
                     "/webjars/**"
                 ).permitAll()
-                // Public APIs
+                // 数据面板接口
                 .requestMatchers(
-                    "/api/v1/user/register",
-                    "/api/v1/user/register/simple",
-                    "/api/v1/user/login",
-                    "/v1/admin/login",     // 添加不带 /api 前缀的路径
-                    "/api/v1/admin/login"  // 保留带 /api 前缀的路径
+                    "/api/v1/admin/dashboard/**",
+                    "/v1/admin/dashboard/**"
                 ).permitAll()
-                // Admin APIs
+                // 用户管理接口
                 .requestMatchers(
-                    new AntPathRequestMatcher("/api/v1/admin/**"),
-                    new AntPathRequestMatcher("/v1/admin/**")  // 添加不带 /api 前缀的路径
-                ).hasRole("ADMIN")
+                    "/api/v1/admin/users/**",
+                    "/v1/admin/users/**"
+                ).permitAll()
+                // 设备管理接口
+                .requestMatchers(
+                    "/api/v1/admin/devices/**",
+                    "/v1/admin/devices/**"
+                ).permitAll()
+                // 系统设置接口
+                .requestMatchers(
+                    "/api/v1/admin/settings/**",
+                    "/v1/admin/settings/**"
+                ).permitAll()
+                // 错误页面
+                .requestMatchers("/error").permitAll()
+                // 其他请求需要认证
                 .anyRequest().authenticated()
             )
-            .httpBasic(basic -> basic.disable());
-        
+            .sessionManagement(session -> session
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            );
+            
         return http.build();
     }
 

@@ -1,13 +1,13 @@
 package com.higame.admin.controller;
 
-import com.higame.admin.service.DashboardService;
+import com.higame.service.UserStatisticsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/api/v1/admin/dashboard")
@@ -15,17 +15,27 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class DashboardController {
 
-    private final DashboardService dashboardService;
+    private final UserStatisticsService userStatisticsService;
 
     @GetMapping("/stats")
     @Operation(summary = "获取数据面板统计信息")
     public ResponseEntity<?> getStats() {
-        return dashboardService.getStats();
+        return ResponseEntity.ok(userStatisticsService.getDailyStatistics());
     }
 
     @GetMapping("/user-trends")
     @Operation(summary = "获取用户趋势数据")
-    public ResponseEntity<?> getUserTrends() {
-        return dashboardService.getUserTrends();
+    public ResponseEntity<?> getUserTrends(
+            @RequestParam(required = false) LocalDate startDate,
+            @RequestParam(required = false) LocalDate endDate
+    ) {
+        if (startDate == null) {
+            startDate = LocalDate.now().minusDays(7);
+        }
+        if (endDate == null) {
+            endDate = LocalDate.now();
+        }
+        
+        return ResponseEntity.ok(userStatisticsService.getTrendStatistics(startDate, endDate));
     }
 } 

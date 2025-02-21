@@ -3,6 +3,7 @@ package com.higame.service.impl;
 import com.higame.dto.UserStatisticsDTO;
 import com.higame.entity.UserStatistics;
 import com.higame.entity.UserType;
+import com.higame.repository.UserDeviceRepository;
 import com.higame.repository.UserRepository;
 import com.higame.repository.UserStatisticsRepository;
 import com.higame.service.UserStatisticsService;
@@ -11,7 +12,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -20,6 +24,7 @@ import java.util.stream.Collectors;
 public class UserStatisticsServiceImpl implements UserStatisticsService {
     private final UserStatisticsRepository userStatisticsRepository;
     private final UserRepository userRepository;
+    private final UserDeviceRepository userDeviceRepository;
 
     @Override
     public UserStatisticsDTO getStatisticsByDate(LocalDate date, UserType userType) {
@@ -109,5 +114,48 @@ public class UserStatisticsServiceImpl implements UserStatisticsService {
         dto.setCreateTime(statistics.getCreateTime());
         dto.setUpdateTime(statistics.getUpdateTime());
         return dto;
+    }
+
+    @Override
+    public Map<String, Object> getDailyStatistics() {
+        Map<String, Object> stats = new HashMap<>();
+        
+        // 获取总用户数
+        stats.put("totalUsers", userRepository.count());
+        
+        // 获取SDK用户数
+        stats.put("sdkUsers", userRepository.countByUserType(UserType.SDK));
+        
+        // 获取APP用户数
+        stats.put("appUsers", userRepository.countByUserType(UserType.APP));
+        
+        // 获取今日活跃用户数
+        stats.put("activeUsers", userRepository.countActiveUsersByDate(LocalDate.now()));
+        
+        // 获取今日新增用户数
+        stats.put("newUsers", userRepository.countNewUsersByDate(LocalDate.now()));
+        
+        // 获取在线设备数
+        stats.put("onlineDevices", userDeviceRepository.countByOnlineTrue());
+        
+        return stats;
+    }
+
+    @Override
+    public List<Map<String, Object>> getTrendStatistics(LocalDate startDate, LocalDate endDate) {
+        List<Map<String, Object>> trends = new ArrayList<>();
+        
+        LocalDate currentDate = startDate;
+        while (!currentDate.isAfter(endDate)) {
+            Map<String, Object> dailyStats = new HashMap<>();
+            dailyStats.put("date", currentDate);
+            dailyStats.put("activeUsers", userRepository.countActiveUsersByDate(currentDate));
+            dailyStats.put("newUsers", userRepository.countNewUsersByDate(currentDate));
+            trends.add(dailyStats);
+            
+            currentDate = currentDate.plusDays(1);
+        }
+        
+        return trends;
     }
 }

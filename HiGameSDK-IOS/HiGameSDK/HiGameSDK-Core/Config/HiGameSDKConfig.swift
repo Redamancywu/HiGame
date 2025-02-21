@@ -4,7 +4,6 @@
 //
 //  Created by neillwu on 2025/2/20.
 //
-
 import Foundation
 
 public class HiGameSDKConfig {
@@ -14,8 +13,29 @@ public class HiGameSDKConfig {
     // 配置参数存储
     private var config: [String: Any] = [:]
     
+    // 默认配置文件名
+    private let defaultFileName = "HiGameSDKConfig.json"
+    
     // 私有初始化方法，防止外部创建实例
-    private init() {}
+    private init() {
+        // 自动加载默认配置文件
+        do {
+            try loadDefaultConfig()
+        } catch {
+            print("Failed to load default configuration: \(error.localizedDescription)")
+        }
+    }
+    
+    // 加载默认配置文件
+    private func loadDefaultConfig() throws {
+        // 获取默认文件路径
+        guard let filePath = Bundle.main.path(forResource: defaultFileName, ofType: nil) else {
+            throw NSError(domain: "HiGameSDKConfig", code: 404, userInfo: [NSLocalizedDescriptionKey: "Default configuration file not found in bundle."])
+        }
+        
+        // 加载 JSON 文件
+        try loadFromJSON(filePath: filePath)
+    }
     
     // 加载 JSON 文件
     public func loadFromJSON(filePath: String) throws {
@@ -27,7 +47,7 @@ public class HiGameSDKConfig {
             let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
             if let dictionary = jsonObject as? [String: Any] {
                 self.config = dictionary
-                HiGameLog.d("Configuration loaded successfully from JSON file.")
+                print("Configuration loaded successfully from JSON file.")
             } else {
                 throw NSError(domain: "HiGameSDKConfig", code: 500, userInfo: [NSLocalizedDescriptionKey: "Invalid JSON format."])
             }
@@ -36,41 +56,19 @@ public class HiGameSDKConfig {
         }
     }
     
-    // 加载 TXT 文件（键值对格式）
-    public func loadFromTXT(filePath: String) throws {
-        guard let content = try? String(contentsOfFile: filePath, encoding: .utf8) else {
-            throw NSError(domain: "HiGameSDKConfig", code: 404, userInfo: [NSLocalizedDescriptionKey: "File not found at path: \(filePath)"])
-        }
-        
-        var parsedConfig: [String: Any] = [:]
-        content.enumerateLines { line, _ in
-            let components = line.split(separator: "=", maxSplits: 1, omittingEmptySubsequences: true)
-            if components.count == 2 {
-                let key = String(components[0]).trimmingCharacters(in: .whitespacesAndNewlines)
-                let value = String(components[1]).trimmingCharacters(in: .whitespacesAndNewlines)
-                parsedConfig[key] = value
-            }
-        }
-        
-        self.config = parsedConfig
-        HiGameLog.d("Configuration loaded successfully from TXT file.")
-    }
-    
     // 获取配置参数
     public subscript(key: String) -> Any? {
         return config[key]
     }
     
-    // 提供静态属性访问
-    public static var appid: String? {
-        return shared["appid"] as? String
-    }
-    
-    public static var apiKey: String? {
-        return shared["apiKey"] as? String
-    }
-    
-    public static var environment: String? {
-        return shared["environment"] as? String
+    // 将当前配置导出为 JSON 字符串
+    public func toJSONString(prettyPrinted: Bool = false) -> String? {
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: config, options: prettyPrinted ? .prettyPrinted : [])
+            return String(data: jsonData, encoding: .utf8)
+        } catch {
+            print("Failed to convert configuration to JSON string: \(error.localizedDescription)")
+            return nil
+        }
     }
 }

@@ -8,15 +8,21 @@ import com.higame.entity.User;
 import com.higame.entity.UserType;
 import com.higame.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class AdminUserServiceImpl implements AdminUserService {
 
     private final UserRepository userRepository;
@@ -24,8 +30,29 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     @Override
     public ResponseEntity<?> getUserList(int page, int size, String query) {
-        Page<User> users = userRepository.findAll(PageRequest.of(page, size));
-        return ResponseEntity.ok(users);
+        try {
+            PageRequest pageRequest = PageRequest.of(page, size, Sort.by("id").descending());
+            Page<User> userPage;
+            
+            if (query != null && !query.trim().isEmpty()) {
+                userPage = userRepository.findByUsernameContainingOrNicknameContaining(
+                    query, query, pageRequest);
+            } else {
+                userPage = userRepository.findAll(pageRequest);
+            }
+
+            Map<String, Object> response = new HashMap<>();
+            response.put("content", userPage.getContent());
+            response.put("totalElements", userPage.getTotalElements());
+            response.put("totalPages", userPage.getTotalPages());
+            response.put("currentPage", userPage.getNumber());
+            response.put("size", userPage.getSize());
+
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            log.error("获取用户列表失败", e);
+            throw new RuntimeException("获取用户列表失败: " + e.getMessage());
+        }
     }
 
     @Override

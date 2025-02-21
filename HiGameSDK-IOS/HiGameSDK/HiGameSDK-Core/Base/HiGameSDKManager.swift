@@ -22,15 +22,21 @@ public class HiGameSDKManager {
     
     // 添加模块工厂
     public func addModuleFactory(_ factory: @escaping () -> HiGameSdkBaseProtocol) {
-        moduleFactories.append(factory)
+        DispatchQueue.main.async {
+            self.moduleFactories.append(factory)
+            HiGameLog.d("Module factory added. Current factory count: \(self.moduleFactories.count)")
+        }
     }
     
     // 自动注册模块
     private func autoRegisterModules() {
-        for factory in moduleFactories {
-            let module = factory()
-            modules[module.moduleName] = module
-            HiGameLog.d("\(module.moduleName) registered successfully.")
+        DispatchQueue.main.async {
+            for factory in self.moduleFactories {
+                let module = factory()
+                self.modules[module.moduleName] = module
+                HiGameLog.d("\(module.moduleName) registered successfully.")
+            }
+            HiGameLog.d("Total modules registered: \(self.modules.count)")
         }
     }
     

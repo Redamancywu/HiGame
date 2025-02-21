@@ -9,9 +9,10 @@ export function getStats() {
 }
 
 // 获取趋势数据
-export function getUserTrends() {
+export function getUserTrends(params) {
   return request({
     url: '/api/v1/admin/dashboard/user-trends',
-    method: 'get'
+    method: 'get',
+    params
   })
 } 

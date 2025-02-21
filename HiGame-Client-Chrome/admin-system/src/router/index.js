@@ -1,14 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import Login from '../views/Login.vue'
 
 const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import('../views/Login.vue'),
-    meta: {
-      title: '登录',
-      public: true
-    }
+    component: Login,
+    meta: { requiresAuth: false }
   },
   {
     path: '/',
@@ -64,12 +62,18 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem('token')
   
-  if (to.meta.public) {
-    next()
-  } else if (!token && to.path !== '/login') {
-    next('/login')
+  if (to.path === '/login') {
+    if (token) {
+      next('/')
+    } else {
+      next()
+    }
   } else {
-    next()
+    if (token) {
+      next()
+    } else {
+      next('/login')
+    }
   }
 })
 

@@ -1,0 +1,10 @@
+{
+    "appid": "123456789",
+    "apiKey": "abcdefg12345",
+    "environment": "production",
+    "timeout": 30,
+    "features": {
+        "ads": true,
+        "analytics": false
+    }
+}

@@ -5,6 +5,7 @@ import com.higame.entity.UserType;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 public interface UserStatisticsService {
     UserStatisticsDTO getStatisticsByDate(LocalDate date, UserType userType);
@@ -12,4 +13,6 @@ public interface UserStatisticsService {
     void updateStatistics(UserType userType);
     void incrementNewUsers(UserType userType);
     void incrementActiveUsers(UserType userType);
+    Map<String, Object> getDailyStatistics();
+    List<Map<String, Object>> getTrendStatistics(LocalDate startDate, LocalDate endDate);
 }

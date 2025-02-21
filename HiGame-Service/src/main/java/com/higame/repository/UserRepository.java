@@ -2,6 +2,8 @@ package com.higame.repository;
 
 import com.higame.entity.User;
 import com.higame.entity.UserType;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -62,4 +64,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Modifying
     @Query("UPDATE User u SET u.loginFailCount = :count WHERE u.id = :userId")
     void updateLoginFailCount(@Param("userId") Long userId, @Param("count") Integer count);
+
+    @Query("SELECT u FROM User u WHERE " +
+           "(:query IS NULL OR u.username LIKE %:query% OR u.email LIKE %:query% OR u.phone LIKE %:query%)")
+    Page<User> findByQuery(@Param("query") String query, Pageable pageable);
+
+    Page<User> findByUsernameContainingOrNicknameContaining(
+        String username, String nickname, Pageable pageable);
 }

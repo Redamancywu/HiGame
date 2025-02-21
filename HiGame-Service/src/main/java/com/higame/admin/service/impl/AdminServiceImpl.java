@@ -28,21 +28,23 @@ public class AdminServiceImpl implements AdminService {
     @Transactional
     public ResponseEntity<?> login(AdminLoginRequest request) {
         Admin admin = adminRepository.findByUsername(request.getUsername())
-                .orElseThrow(() -> new RuntimeException("管理员不存在"));
-
-        if (!passwordEncoder.matches(request.getPassword(), admin.getPassword())) {
-            throw new RuntimeException("密码错误");
+                .orElseThrow(() -> new RuntimeException("用户名或密码错误"));
+            
+        if (!admin.isEnabled()) {
+            throw new RuntimeException("账号已被禁用");
         }
-
-        String token = jwtTokenProvider.generateToken(admin.getUsername(), "ADMIN");
-
+        
+        if (!passwordEncoder.matches(request.getPassword(), admin.getPassword())) {
+            throw new RuntimeException("用户名或密码错误");
+        }
+        
+        String token = jwtTokenProvider.generateToken(admin.getUsername(), admin.getRole());
+        
         Map<String, Object> response = new HashMap<>();
         response.put("token", token);
         response.put("username", admin.getUsername());
-        response.put("role", "ADMIN");
-        response.put("email", admin.getEmail());
-        response.put("phone", admin.getPhone());
-
+        response.put("role", admin.getRole());
+        
         return ResponseEntity.ok(response);
     }
 

@@ -12,7 +12,7 @@ export function login(data) {
 // 获取用户列表
 export function getUserList(params) {
   return request({
-    url: '/api/v1/admin/users',
+    url: '/v1/admin/users',
     method: 'get',
     params
   })
