@@ -7,68 +7,138 @@
 import HiGameSDK_Core
 import Foundation
 
+// 模块工厂函数
+public func createHiGameSDKMaxModule() -> HiGameSdkBaseProtocol {
+    return HiGameSDKMax()
+}
+
 public class HiGameSDKMax: HiGameSDKAdProtocol {
     // 模块名称
     public var moduleName: String = "HiGameSDKMax"
     
     // 初始化时传入的代理
-    private var adDelegate: HiGameSDKInitDelegate?
+    private var initDelegate: HiGameSDKInitDelegate?
+    private var adDelegate: HiGameAdDelegate?
+    
+    // 各类型广告实例
+    private let bannerAd = HiGameSDKMaxBannerAd()
+    private let interstitialAd = HiGameSDKMaxInterstitialAd()
+    private let rewardedAd = HiGameSDKMaxRewardedAd()
+    private let nativeAd = HiGameSDKMaxNativeAd()
+    private let splashAd = HiGameSDKMaxSplashAd()
     
     // 构造函数
-    public init(delegate: HiGameSDKInitDelegate?) {
-        self.adDelegate = delegate
-        HiGameLog.d("HiGameSDKMax instance created.")
-    
-        
-    }
-    
-    
-    // 静态方法：自动注册模块
-    public static func register() {
-        HiGameSDKManager.shared.addModuleFactory { HiGameSDKMax(delegate: nil) }
-        HiGameLog.d("HiGameSDKMax registered automatically.")
+    public required init() {
+        HiGameLog.d("\(moduleName) instance created.")
+        // 在初始化时自动注册模块
+        HiGameSDKManager.shared.addModuleFactory(createHiGameSDKMaxModule)
     }
     
     // 协议方法：初始化模块
     public func initialize(delegate: HiGameSDKInitDelegate?) {
-        self.adDelegate = delegate
+        self.initDelegate = delegate
         HiGameLog.d("\(moduleName) initialized with delegate.")
+        
+        // 在初始化完成后立即通知成功
+        let initData = NSObject()
+        initDelegate?.onInitSuccess(data: initData)
     }
     
     // 协议方法：处理 SDK 初始化时的配置
     public func onInitSDK(_ config: HiGameSDKConfig) {
         guard let appid = config["appid"] as? String else {
-            HiGameLog.e("Missing required configuration parameter: appid")
+            HiGameLog.e("\(moduleName): Missing required configuration parameter: appid")
+            initDelegate?.onInitFailed(code: 400, errorMessage: "Missing required configuration parameter: appid")
             return
         }
-        HiGameLog.d("\(moduleName) received configuration with appid: \(appid)")
-        let successful: NSObject = "Successful" as NSString
-        adDelegate?.onInitSuccess(data: successful)
         
-        // 示例：根据配置加载广告
-        loadAd()
+        HiGameLog.d("\(moduleName) received configuration with appid: \(appid)")
     }
     
-    // 协议方法：加载广告
-    public func loadAd() {
-        HiGameLog.d("\(moduleName) is loading an ad...")
-        // 模拟异步加载广告
-        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
-            DispatchQueue.main.async {
-                HiGameLog.d("\(self.moduleName) ad loaded successfully.")
-                self.adDelegate?.onInitSuccess(data: NSObject())
-            }
+    // 设置广告代理
+    public func setAdDelegate(_ delegate: HiGameAdDelegate) {
+        self.adDelegate = delegate
+        bannerAd.setAdDelegate(delegate)
+        interstitialAd.setAdDelegate(delegate)
+        rewardedAd.setAdDelegate(delegate)
+        nativeAd.setAdDelegate(delegate)
+        splashAd.setAdDelegate(delegate)
+        HiGameLog.d("\(moduleName) ad delegate set.")
+    }
+    
+    // 检查指定类型的广告是否准备就绪
+    public func isAdReady(type: HiGameAdType) -> Bool {
+        switch type {
+        case .banner:
+            return bannerAd.isAdLoaded()
+        case .interstitial:
+            return interstitialAd.isAdLoaded()
+        case .rewardedVideo:
+            return rewardedAd.isAdLoaded()
+        case .native:
+            return nativeAd.isAdLoaded()
+        case .splash:
+            return splashAd.isAdLoaded()
         }
     }
     
-    // 协议方法：展示广告
-    public func showAd() {
-        HiGameLog.d("\(moduleName) is showing an ad...")
-        // 模拟广告展示逻辑
-        DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
-            DispatchQueue.main.async {
-                HiGameLog.d("\(self.moduleName) ad shown successfully.")
-            }
+    // 自动预加载广告
+    public func autoLoaded(type: HiGameAdType) {
+        if !isAdLoaded(type: type) {
+            loadAd(type: type)
         }
+    }
+    
+    // 加载指定类型的广告
+    public func loadAd(type: HiGameAdType) {
+        switch type {
+        case .banner:
+            bannerAd.loadAd()
+        case .interstitial:
+            interstitialAd.loadAd()
+        case .rewardedVideo:
+            rewardedAd.loadAd()
+        case .native:
+            nativeAd.loadAd()
+        case .splash:
+            splashAd.loadAd()
+        }
+    }
+    
+    // 展示指定类型的广告
+    public func showAd(type: HiGameAdType) {
+        switch type {
+        case .banner:
+            bannerAd.showAd()
+        case .interstitial:
+            interstitialAd.showAd()
+        case .rewardedVideo:
+            rewardedAd.showAd()
+        case .native:
+            nativeAd.showAd()
+        case .splash:
+            splashAd.showAd()
+        }
+    }
+    
+    // 关闭指定类型的广告
+    public func closeAd(type: HiGameAdType) {
+        switch type {
+        case .banner:
+            bannerAd.closeAd()
+        case .interstitial:
+            interstitialAd.closeAd()
+        case .rewardedVideo:
+            rewardedAd.closeAd()
+        case .native:
+            nativeAd.closeAd()
+        case .splash:
+            splashAd.closeAd()
+        }
+    }
+    
+    // 检查指定类型的广告是否已加载
+    public func isAdLoaded(type: HiGameAdType) -> Bool {
+        return isAdReady(type: type)
     }
 }

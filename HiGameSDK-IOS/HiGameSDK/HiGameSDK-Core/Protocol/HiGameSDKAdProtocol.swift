@@ -6,7 +6,11 @@
 //
 
 public protocol HiGameSDKAdProtocol : HiGameSdkBaseProtocol {
-    func loadAd()
-    
-    func showAd()
+    func setAdDelegate(_ delegate: HiGameAdDelegate)
+    func isAdReady(type: HiGameAdType) -> Bool
+    func loadAd(type: HiGameAdType)
+    func showAd(type: HiGameAdType)
+    func closeAd(type: HiGameAdType)
+    func autoLoaded(type: HiGameAdType)
+    func isAdLoaded(type: HiGameAdType) -> Bool
 }

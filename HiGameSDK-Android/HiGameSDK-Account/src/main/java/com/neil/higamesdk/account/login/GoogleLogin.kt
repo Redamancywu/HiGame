@@ -3,16 +3,21 @@ package com.neil.higamesdk.account.login
 import android.app.Activity
 import android.content.Context
 import androidx.credentials.CredentialManager
+import androidx.credentials.CustomCredential
 import androidx.credentials.GetCredentialRequest
 import androidx.credentials.GetCredentialResponse
+import androidx.credentials.PasswordCredential
+import androidx.credentials.PublicKeyCredential
 import androidx.credentials.exceptions.GetCredentialCancellationException
 import androidx.credentials.exceptions.GetCredentialCustomException
+import androidx.credentials.exceptions.GetCredentialException
 import androidx.credentials.exceptions.GetCredentialInterruptedException
 import androidx.credentials.exceptions.GetCredentialProviderConfigurationException
 import androidx.credentials.exceptions.GetCredentialUnknownException
 import androidx.credentials.exceptions.NoCredentialException
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
+import com.google.android.libraries.identity.googleid.GoogleIdTokenParsingException
 import com.higame.sdk.core.callback.HiGameModuleInitCallback
 import com.higame.sdk.core.config.HiGameConfig
 import com.higame.sdk.core.utils.log.HiLogger
@@ -74,7 +79,6 @@ class GoogleLogin private constructor() {
             .setServerClientId(googleClientId ?: "")
             .setFilterByAuthorizedAccounts(false)
             .setAutoSelectEnabled(true)
-            // .setNonce(config?.googleSignInNonce ?: "") // 如果有配置 nonce
             .build()
 
         val request = GetCredentialRequest.Builder()
@@ -86,66 +90,124 @@ class GoogleLogin private constructor() {
                 request = request,
                 context = activity
             )
-            handleSignInResult(result, callback)
-        } catch (e: Exception) {
-            handleSignInError(e, callback)
+            if (result != null) {
+                handleSignIn(result, callback)
+            }
+        } catch (e: GetCredentialException) {
+            handleFailure(e, callback)
         }
     }
 
     /**
      * 处理登录成功的结果
      */
-    private fun handleSignInResult(
-        result: GetCredentialResponse?,
+    fun handleSignIn(
+        result: GetCredentialResponse,
         callback: (Result<GoogleSignInResult>) -> Unit
     ) {
-        try {
-            if (result == null) {
-                callback(Result.failure(IllegalStateException("Credential response is null")))
-                return
+        // 处理成功返回的凭证
+        val credential = result.credential
+
+        when (credential) {
+            // 处理 PublicKeyCredential
+            is PublicKeyCredential -> {
+                // 发送 authenticationResponseJson 到服务器进行验证
+                val responseJson = credential.authenticationResponseJson
             }
 
-            val credential = result.credential as? GoogleIdTokenCredential
-            if (credential != null) {
-                val signInResult = GoogleSignInResult(
-                    idToken = credential.idToken,
-                    accountName = credential.id,
-                    displayName = credential.displayName,
-                    givenName = credential.givenName,
-                    familyName = credential.familyName
-                )
-                callback(Result.success(signInResult))
-            } else {
-                callback(Result.failure(IllegalStateException("Invalid credential type")))
+            // 处理 PasswordCredential
+            is PasswordCredential -> {
+                // 发送 ID 和密码到服务器进行验证
+                val username = credential.id
+                val password = credential.password
             }
-        } catch (e: Exception) {
-            callback(Result.failure(e))
+
+            // 处理 GoogleIdTokenCredential
+            is CustomCredential -> {
+                if (credential.type == GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
+                    try {
+                        // 使用 GoogleIdTokenCredential 对象并提取 ID 进行验证
+                        val googleIdTokenCredential =
+                            GoogleIdTokenCredential.createFrom(credential.data)
+
+                        // 通过后台服务器验证 ID Token
+                        val idTokenString = googleIdTokenCredential.idToken
+                        val displayName = googleIdTokenCredential.displayName
+                        val phoneNumber = googleIdTokenCredential.phoneNumber
+                        val familyName = googleIdTokenCredential.familyName
+                        val givenName = googleIdTokenCredential.givenName
+                        val id = googleIdTokenCredential.id
+                        //val verifier = GoogleIdTokenVerifier()  // 需要创建一个验证器
+                        //  val idToken = verifier.verify(idTokenString)
+
+                        // 获取稳定的账户标识符
+                        //  val subject = idToken?.payload?.subject
+                        callback(
+                            Result.success(
+                                GoogleSignInResult(
+                                    idToken = idTokenString,
+                                    displayName = displayName,
+                                    accountName = id,
+                                    givenName = givenName,
+                                    familyName = familyName,
+                                    userId = id
+                                )
+                            )
+                        )
+                    } catch (e: GoogleIdTokenParsingException) {
+                        HiLogger.e("Received an invalid Google ID token response", e)
+                    }
+                } else {
+                    // 处理无法识别的自定义凭证类型
+                    HiLogger.e("Unexpected type of credential")
+                }
+            }
+
+            else -> {
+                // 处理任何未识别的凭证类型
+                HiLogger.e("Unexpected type of credential")
+            }
         }
     }
 
-    /**
-     * 处理登录失败的错误
-     */
-    private fun handleSignInError(
-        e: Exception,
-        callback: (Result<GoogleSignInResult>) -> Unit
-    ) {
-        val errorMessage = when (e) {
-            is NoCredentialException -> "No credentials found"
-            is GetCredentialCancellationException -> "User canceled the operation"
-            is GetCredentialInterruptedException -> "Operation interrupted"
-            is GetCredentialProviderConfigurationException -> "Provider configuration error"
-            is GetCredentialUnknownException -> "Unknown error"
-            is GetCredentialCustomException -> "Custom error: ${e.message}"
-            else -> "Authentication failed: ${e.message}"
+    fun handleFailure(e: GetCredentialException, callback: (Result<GoogleSignInResult>) -> Unit) {
+        when (e) {
+            is NoCredentialException -> {
+                HiLogger.e("No credentials found", e)
+            }
+
+            is GetCredentialCancellationException -> {
+                HiLogger.e("User canceled the operation", e)
+            }
+
+            is GetCredentialInterruptedException -> {
+                HiLogger.e("Operation interrupted", e)
+            }
+
+            is GetCredentialProviderConfigurationException -> {
+                HiLogger.e("Provider configuration error", e)
+            }
+
+            is GetCredentialUnknownException -> {
+                HiLogger.e("Unknown error", e)
+            }
+
+            is GetCredentialCustomException -> {
+                HiLogger.e("Custom error: ${e.message}", e)
+            }
+
+            else -> {
+                HiLogger.e("Authentication failed: ${e.message}", e)
+            }
         }
-        callback(Result.failure(RuntimeException(errorMessage, e)))
+        callback(Result.failure(e))
     }
 
     /**
      * Google 登录结果数据类
      */
     data class GoogleSignInResult(
+        val userId :String,
         val idToken: String,
         val accountName: String,
         val displayName: String?,
@@ -153,3 +215,4 @@ class GoogleLogin private constructor() {
         val familyName: String?
     )
 }
+

@@ -17,6 +17,7 @@ import com.higame.sdk.core.callback.HiGameLoginCallback
 import com.higame.sdk.core.model.AdType
 import com.higame.sdk.core.model.LoginParams
 import com.higame.sdk.core.model.LoginType
+import com.higame.sdk.core.utils.log.HiLogger
 import com.neil.gamesdk.R
 
 class MainActivity : AppCompatActivity() {
@@ -95,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.loginButton).setOnClickListener {
             appendLog("开始登录...")
             HiGameSDK.getInstance()
-                .login(false, params = LoginParams.PlatformLogin(LoginType.QQ), object : HiGameLoginCallback {
+                .login(false, params = LoginParams.PlatformLogin(LoginType.GOOGLE), object : HiGameLoginCallback {
                     override fun onCancel() {
                         appendLog("登录已取消")
                     }
@@ -105,6 +106,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     override fun onError(code: Int, message: String, data: Any?) {
+                        HiLogger.e("登录失败：[$code] $message")
                         appendLog("登录失败：[$code] $message")
                     }
                 })

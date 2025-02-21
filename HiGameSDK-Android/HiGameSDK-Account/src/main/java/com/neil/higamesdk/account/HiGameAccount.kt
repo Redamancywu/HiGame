@@ -48,6 +48,18 @@ class HiGameAccount : IAccountModule{
         TencentQQLogin.getInstance().setInitCallback(moduleInitCallback)
     }
 
+    override fun onPause() {
+      
+    }
+
+    override fun onStop() {
+      
+    }
+
+    override fun onDestroy() {
+      
+    }
+
     override fun login(screen: Boolean?, params: LoginParams?, callback: HiGameLoginCallback) {
          val activity = currentActivity ?: run {
             HiLogger.e("HiGameAccount loginWithScreen currentActivity is null")
@@ -155,11 +167,11 @@ class HiGameAccount : IAccountModule{
                 GoogleLogin.getInstance().signIn(activity) { result ->
                     result.onSuccess { signInResult ->
                         val userInfo = UserInfo(
-                            userId = signInResult.familyName!!,
+                            userId = signInResult.userId!!,
                             token = signInResult.idToken,
-                            nickname = signInResult.displayName,
+                            nickname = signInResult.accountName,
                             avatar = null,
-                            username = signInResult.accountName
+                            username = signInResult.familyName ?: "Unknown"
                         )
                         callback.onSuccess(userInfo.toString())
                     }.onFailure { exception ->
@@ -199,23 +211,23 @@ class HiGameAccount : IAccountModule{
     }
 
     override fun getUserInfo(): UserInfo? {
-        TODO("Not yet implemented")
+      return null
     }
 
     override fun isLoggedIn(): Boolean {
-        TODO("Not yet implemented")
+      return true
     }
 
     override fun bindAccount(accountType: String) {
-        TODO("Not yet implemented")
+      
     }
 
     override fun unbindAccount(accountType: String) {
-        TODO("Not yet implemented")
+      
     }
 
     override fun getBindAccounts(): List<String> {
-        TODO("Not yet implemented")
+      return emptyList()
     }
 
     override fun getModuleName(): String {

@@ -1,6 +1,7 @@
 package com.higame.sdk.core
 
 import android.app.Activity
+import android.app.Application
 import android.content.Context
 import android.content.Intent
 import com.higame.sdk.core.callback.HiGameAdCallback
@@ -14,6 +15,7 @@ import com.higame.sdk.core.module.IAccountModule
 import com.higame.sdk.core.module.IAdModule
 import com.higame.sdk.core.module.IModule
 import com.higame.sdk.core.module.IPaymentModule
+import com.higame.sdk.core.utils.ApplicationUtils
 import com.higame.sdk.core.utils.ConfigLoader.loadConfig
 import com.higame.sdk.core.utils.ContextUtils
 import com.higame.sdk.core.utils.log.HiLogger
@@ -74,7 +76,7 @@ object HiGameManager {
         plugins.forEach { plugin ->
             try {
                 val pluginName = plugin.getModuleName()
-                HiLogger.d("Initializing plugin==-=======: $pluginName")
+                HiLogger.d("Initializing plugin: $pluginName")
                 moduleInitStatus[pluginName] = false
 
                 plugin.setCallback(object : HiGameModuleInitCallback {
@@ -166,6 +168,7 @@ object HiGameManager {
      * 初始化 SDK
      */
     fun initSDK(context: Context, callback: HiGameInitCallback) {
+        HiGameLifecycle.init(ApplicationUtils.getApplication())
         if (isInitialized) {
             callback.onInitComplete()
             return
@@ -297,6 +300,53 @@ object HiGameManager {
                 plugin.onResume()
             } catch (e: Exception) {
                 HiLogger.e("Failed to perform onResume with plugin: ${plugin.getModuleName()}", e)
+            }
+        }
+    }
+
+    fun onPause() {
+        if (!isInitialized()) {
+            HiLogger.e("SDK未初始化，无法处理onPause")
+            return
+        }
+        plugins.forEach { plugin ->
+            try {
+                HiLogger.d("onPause with plugin: ${plugin.getModuleName()}")
+                plugin.onPause()
+            } catch (e: Exception) {
+                HiLogger.e("Failed to perform onPause with plugin: ${plugin.getModuleName()}", e)
+            }
+        }
+    }
+
+    fun onStop() {
+        if (!isInitialized()) {
+            HiLogger.e("SDK未初始化，无法处理onStop")
+            return
+        }
+
+        plugins.forEach { plugin ->
+            try {
+                HiLogger.d("onStop with plugin: ${plugin.getModuleName()}")
+                plugin.onStop()
+            } catch (e: Exception) {
+                HiLogger.e("Failed to perform onStop with plugin: ${plugin.getModuleName()}", e)
+            }
+        }
+    }
+
+    fun onDestroy() {
+        if (!isInitialized()) {
+            HiLogger.e("SDK未初始化，无法处理onDestroy")
+            return
+        }
+
+        plugins.forEach { plugin ->
+            try {
+                HiLogger.d("onDestroy with plugin: ${plugin.getModuleName()}")
+                plugin.onDestroy()
+            } catch (e: Exception) {
+                HiLogger.e("Failed to perform onDestroy with plugin: ${plugin.getModuleName()}", e)
             }
         }
     }

@@ -40,6 +40,7 @@ dependencies {
     implementation(files("libs/open_sdk_3.5.17.3_r75955a58_lite.jar"))
     implementation(project(":HiGameSDK-Core"))
     implementation(libs.auto.service.annotations)
+    implementation(libs.play.services.auth)
     implementation(libs.credentials)
     implementation(libs.credentials.play.services.auth)
     implementation(libs.googleid)

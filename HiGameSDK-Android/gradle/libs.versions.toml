@@ -16,8 +16,11 @@ constraintlayout = "2.1.4"
 okhttp = "4.12.0"
 retrofit = "2.9.0"
 gson = "2.10.1"
+lifecycleProcess = "2.8.7"
+gms = "21.1.0"
 
 [libraries]
+play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "gms" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 credentials = { module = "androidx.credentials:credentials", version.ref = "credentialsVersion" }
 credentials-play-services-auth = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "credentialsPlayServicesAuthVersion" }
@@ -36,6 +39,7 @@ retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", ver
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 auto-service = { group = "com.google.auto.service", name = "auto-service", version.ref = "autoService" }
 auto-service-annotations = { group = "com.google.auto.service", name = "auto-service-annotations", version.ref = "autoService" }
+androidx-lifecycle-process = { group = "androidx.lifecycle", name = "lifecycle-process", version.ref = "lifecycleProcess" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

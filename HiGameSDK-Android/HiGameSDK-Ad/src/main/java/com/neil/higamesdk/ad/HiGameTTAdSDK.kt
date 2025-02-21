@@ -216,6 +216,18 @@ class HiGameTTAdSDK : IAdModule {
 
     }
 
+    override fun onPause() {
+
+    }
+
+    override fun onStop() {
+
+    }
+
+    override fun onDestroy() {
+
+    }
+
     override fun onResume() {
 
     }

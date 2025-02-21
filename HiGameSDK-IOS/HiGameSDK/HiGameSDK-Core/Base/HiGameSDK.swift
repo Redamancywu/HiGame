@@ -7,7 +7,9 @@
 public class HiGameSDK {
     // 单例实例
     public static let shared = HiGameSDK()
+    
     public func initSDK(_ Initdelegate: HiGameSDKInitDelegate?) {
-        HiGameSDKManager.shared.initSDK(Initdelegate:Initdelegate )
+        // 初始化SDK
+        HiGameSDKManager.shared.initSDK(Initdelegate:Initdelegate)
     }
 }
