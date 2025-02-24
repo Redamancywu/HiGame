@@ -10,10 +10,16 @@
 		B18C2F712D66CB0800E62EDF /* HiGameSDK_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; };
 		B18C2FB92D67207700E62EDF /* HiGameSDK_Max.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2FB32D67207700E62EDF /* HiGameSDK_Max.framework */; };
 		B18C2FC22D67209500E62EDF /* HiGameSDK_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; };
-		B18C2FE52D6739BE00E62EDF /* HiGameSDK_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; };
-		B18C2FE62D6739BE00E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B18C2FEA2D6739C100E62EDF /* HiGameSDK_Max.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2FB32D67207700E62EDF /* HiGameSDK_Max.framework */; };
-		B18C2FEB2D6739C100E62EDF /* HiGameSDK_Max.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2FB32D67207700E62EDF /* HiGameSDK_Max.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B18C30D22D6C218500E62EDF /* HiGameSDK_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; };
+		B18C30D32D6C218500E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B18C30D52D6C218600E62EDF /* HiGameSDK_Max.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2FB32D67207700E62EDF /* HiGameSDK_Max.framework */; };
+		B18C30D62D6C218600E62EDF /* HiGameSDK_Max.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2FB32D67207700E62EDF /* HiGameSDK_Max.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B18C30E22D6C40CC00E62EDF /* HiGameSDK_Account.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C30DC2D6C40CC00E62EDF /* HiGameSDK_Account.framework */; };
+		B18C30E32D6C40CC00E62EDF /* HiGameSDK_Account.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C30DC2D6C40CC00E62EDF /* HiGameSDK_Account.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B18C30F32D6C475300E62EDF /* HiGameSDK_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; };
+		B18C30F42D6C475300E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B18C30FC2D6C554900E62EDF /* HiGameSDK_Account.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C30DC2D6C40CC00E62EDF /* HiGameSDK_Account.framework */; };
+		B18C30FD2D6C554900E62EDF /* HiGameSDK_Account.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C30DC2D6C40CC00E62EDF /* HiGameSDK_Account.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,31 +44,75 @@
 			remoteGlobalIDString = B18C2F6A2D66CB0800E62EDF;
 			remoteInfo = "HiGameSDK-Core";
 		};
-		B18C2FE72D6739BE00E62EDF /* PBXContainerItemProxy */ = {
+		B18C30CB2D6C208200E62EDF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B18C2F4D2D66CAB400E62EDF /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B18C2F6A2D66CB0800E62EDF;
 			remoteInfo = "HiGameSDK-Core";
 		};
-		B18C2FEC2D6739C100E62EDF /* PBXContainerItemProxy */ = {
+		B18C30D02D6C208500E62EDF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B18C2F4D2D66CAB400E62EDF /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B18C2FB22D67207700E62EDF;
 			remoteInfo = "HiGameSDK-Max";
 		};
+		B18C30E02D6C40CC00E62EDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B18C2F4D2D66CAB400E62EDF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B18C30DB2D6C40CC00E62EDF;
+			remoteInfo = "HiGameSDK-Account";
+		};
+		B18C30F52D6C475300E62EDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B18C2F4D2D66CAB400E62EDF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B18C2F6A2D66CB0800E62EDF;
+			remoteInfo = "HiGameSDK-Core";
+		};
+		B18C30FE2D6C554900E62EDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B18C2F4D2D66CAB400E62EDF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B18C30DB2D6C40CC00E62EDF;
+			remoteInfo = "HiGameSDK-Account";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B18C2FE92D6739BE00E62EDF /* Embed Frameworks */ = {
+		B18C30D42D6C218500E62EDF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B18C2FE62D6739BE00E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */,
-				B18C2FEB2D6739C100E62EDF /* HiGameSDK_Max.framework in Embed Frameworks */,
+				B18C30FD2D6C554900E62EDF /* HiGameSDK_Account.framework in Embed Frameworks */,
+				B18C30D32D6C218500E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */,
+				B18C30D62D6C218600E62EDF /* HiGameSDK_Max.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B18C30E82D6C40CC00E62EDF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B18C30E32D6C40CC00E62EDF /* HiGameSDK_Account.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B18C30F72D6C475300E62EDF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B18C30F42D6C475300E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,7 +123,8 @@
 		B18C2F552D66CAB400E62EDF /* HiGameSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiGameSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HiGameSDK_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18C2FB32D67207700E62EDF /* HiGameSDK_Max.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HiGameSDK_Max.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B18C2FD02D67398F00E62EDF /* HiGameSDK-SwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HiGameSDK-SwiftDemo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B18C30B02D6C1FBA00E62EDF /* HiGameSDK-SwiftTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HiGameSDK-SwiftTest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B18C30DC2D6C40CC00E62EDF /* HiGameSDK_Account.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HiGameSDK_Account.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -91,12 +142,19 @@
 			);
 			target = B18C2FB22D67207700E62EDF /* HiGameSDK-Max */;
 		};
-		B18C2FE12D67399100E62EDF /* Exceptions for "HiGameSDK-SwiftDemo" folder in "HiGameSDK-SwiftDemo" target */ = {
+		B18C30C12D6C1FBB00E62EDF /* Exceptions for "HiGameSDK-SwiftTest" folder in "HiGameSDK-SwiftTest" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = B18C2FCF2D67398F00E62EDF /* HiGameSDK-SwiftDemo */;
+			target = B18C30AF2D6C1FBA00E62EDF /* HiGameSDK-SwiftTest */;
+		};
+		B18C30E42D6C40CC00E62EDF /* Exceptions for "HiGameSDK-Account" folder in "HiGameSDK-Account" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			publicHeaders = (
+				HiGameSDK_Account.h,
+			);
+			target = B18C30DB2D6C40CC00E62EDF /* HiGameSDK-Account */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -122,12 +180,20 @@
 			path = "HiGameSDK-Max";
 			sourceTree = "<group>";
 		};
-		B18C2FD12D67398F00E62EDF /* HiGameSDK-SwiftDemo */ = {
+		B18C30B12D6C1FBA00E62EDF /* HiGameSDK-SwiftTest */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				B18C2FE12D67399100E62EDF /* Exceptions for "HiGameSDK-SwiftDemo" folder in "HiGameSDK-SwiftDemo" target */,
+				B18C30C12D6C1FBB00E62EDF /* Exceptions for "HiGameSDK-SwiftTest" folder in "HiGameSDK-SwiftTest" target */,
 			);
-			path = "HiGameSDK-SwiftDemo";
+			path = "HiGameSDK-SwiftTest";
+			sourceTree = "<group>";
+		};
+		B18C30DD2D6C40CC00E62EDF /* HiGameSDK-Account */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B18C30E42D6C40CC00E62EDF /* Exceptions for "HiGameSDK-Account" folder in "HiGameSDK-Account" target */,
+			);
+			path = "HiGameSDK-Account";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -137,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B18C30E22D6C40CC00E62EDF /* HiGameSDK_Account.framework in Frameworks */,
 				B18C2F712D66CB0800E62EDF /* HiGameSDK_Core.framework in Frameworks */,
 				B18C2FB92D67207700E62EDF /* HiGameSDK_Max.framework in Frameworks */,
 			);
@@ -157,12 +224,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B18C2FCD2D67398F00E62EDF /* Frameworks */ = {
+		B18C30AD2D6C1FBA00E62EDF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B18C2FE52D6739BE00E62EDF /* HiGameSDK_Core.framework in Frameworks */,
-				B18C2FEA2D6739C100E62EDF /* HiGameSDK_Max.framework in Frameworks */,
+				B18C30FC2D6C554900E62EDF /* HiGameSDK_Account.framework in Frameworks */,
+				B18C30D22D6C218500E62EDF /* HiGameSDK_Core.framework in Frameworks */,
+				B18C30D52D6C218600E62EDF /* HiGameSDK_Max.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B18C30D92D6C40CC00E62EDF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B18C30F32D6C475300E62EDF /* HiGameSDK_Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +251,8 @@
 				B18C2F572D66CAB400E62EDF /* HiGameSDK */,
 				B18C2F6C2D66CB0800E62EDF /* HiGameSDK-Core */,
 				B18C2FB42D67207700E62EDF /* HiGameSDK-Max */,
-				B18C2FD12D67398F00E62EDF /* HiGameSDK-SwiftDemo */,
+				B18C30B12D6C1FBA00E62EDF /* HiGameSDK-SwiftTest */,
+				B18C30DD2D6C40CC00E62EDF /* HiGameSDK-Account */,
 				B18C2FC12D67209500E62EDF /* Frameworks */,
 				B18C2F562D66CAB400E62EDF /* Products */,
 			);
@@ -187,7 +264,8 @@
 				B18C2F552D66CAB400E62EDF /* HiGameSDK.app */,
 				B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */,
 				B18C2FB32D67207700E62EDF /* HiGameSDK_Max.framework */,
-				B18C2FD02D67398F00E62EDF /* HiGameSDK-SwiftDemo.app */,
+				B18C30B02D6C1FBA00E62EDF /* HiGameSDK-SwiftTest.app */,
+				B18C30DC2D6C40CC00E62EDF /* HiGameSDK_Account.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -216,6 +294,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B18C30D72D6C40CC00E62EDF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -226,12 +311,14 @@
 				B18C2F512D66CAB400E62EDF /* Sources */,
 				B18C2F522D66CAB400E62EDF /* Frameworks */,
 				B18C2F532D66CAB400E62EDF /* Resources */,
+				B18C30E82D6C40CC00E62EDF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				B18C2F702D66CB0800E62EDF /* PBXTargetDependency */,
 				B18C2FB82D67207700E62EDF /* PBXTargetDependency */,
+				B18C30E12D6C40CC00E62EDF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				B18C2F572D66CAB400E62EDF /* HiGameSDK */,
@@ -290,30 +377,56 @@
 			productReference = B18C2FB32D67207700E62EDF /* HiGameSDK_Max.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		B18C2FCF2D67398F00E62EDF /* HiGameSDK-SwiftDemo */ = {
+		B18C30AF2D6C1FBA00E62EDF /* HiGameSDK-SwiftTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B18C2FE22D67399100E62EDF /* Build configuration list for PBXNativeTarget "HiGameSDK-SwiftDemo" */;
+			buildConfigurationList = B18C30C22D6C1FBB00E62EDF /* Build configuration list for PBXNativeTarget "HiGameSDK-SwiftTest" */;
 			buildPhases = (
-				B18C2FCC2D67398F00E62EDF /* Sources */,
-				B18C2FCD2D67398F00E62EDF /* Frameworks */,
-				B18C2FCE2D67398F00E62EDF /* Resources */,
-				B18C2FE92D6739BE00E62EDF /* Embed Frameworks */,
+				B18C30AC2D6C1FBA00E62EDF /* Sources */,
+				B18C30AD2D6C1FBA00E62EDF /* Frameworks */,
+				B18C30AE2D6C1FBA00E62EDF /* Resources */,
+				B18C30D42D6C218500E62EDF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B18C2FE82D6739BE00E62EDF /* PBXTargetDependency */,
-				B18C2FED2D6739C100E62EDF /* PBXTargetDependency */,
+				B18C30CC2D6C208200E62EDF /* PBXTargetDependency */,
+				B18C30D12D6C208500E62EDF /* PBXTargetDependency */,
+				B18C30FF2D6C554900E62EDF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				B18C2FD12D67398F00E62EDF /* HiGameSDK-SwiftDemo */,
+				B18C30B12D6C1FBA00E62EDF /* HiGameSDK-SwiftTest */,
 			);
-			name = "HiGameSDK-SwiftDemo";
+			name = "HiGameSDK-SwiftTest";
 			packageProductDependencies = (
 			);
-			productName = "HiGameSDK-SwiftDemo";
-			productReference = B18C2FD02D67398F00E62EDF /* HiGameSDK-SwiftDemo.app */;
+			productName = "HiGameSDK-SwiftTest";
+			productReference = B18C30B02D6C1FBA00E62EDF /* HiGameSDK-SwiftTest.app */;
 			productType = "com.apple.product-type.application";
+		};
+		B18C30DB2D6C40CC00E62EDF /* HiGameSDK-Account */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B18C30E52D6C40CC00E62EDF /* Build configuration list for PBXNativeTarget "HiGameSDK-Account" */;
+			buildPhases = (
+				B18C30D72D6C40CC00E62EDF /* Headers */,
+				B18C30D82D6C40CC00E62EDF /* Sources */,
+				B18C30D92D6C40CC00E62EDF /* Frameworks */,
+				B18C30DA2D6C40CC00E62EDF /* Resources */,
+				B18C30F72D6C475300E62EDF /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B18C30F62D6C475300E62EDF /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B18C30DD2D6C40CC00E62EDF /* HiGameSDK-Account */,
+			);
+			name = "HiGameSDK-Account";
+			packageProductDependencies = (
+			);
+			productName = "HiGameSDK-Account";
+			productReference = B18C30DC2D6C40CC00E62EDF /* HiGameSDK_Account.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -335,8 +448,12 @@
 						CreatedOnToolsVersion = 16.0;
 						LastSwiftMigration = 1600;
 					};
-					B18C2FCF2D67398F00E62EDF = {
+					B18C30AF2D6C1FBA00E62EDF = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					B18C30DB2D6C40CC00E62EDF = {
+						CreatedOnToolsVersion = 16.0;
+						LastSwiftMigration = 1600;
 					};
 				};
 			};
@@ -357,7 +474,8 @@
 				B18C2F542D66CAB400E62EDF /* HiGameSDK */,
 				B18C2F6A2D66CB0800E62EDF /* HiGameSDK-Core */,
 				B18C2FB22D67207700E62EDF /* HiGameSDK-Max */,
-				B18C2FCF2D67398F00E62EDF /* HiGameSDK-SwiftDemo */,
+				B18C30AF2D6C1FBA00E62EDF /* HiGameSDK-SwiftTest */,
+				B18C30DB2D6C40CC00E62EDF /* HiGameSDK-Account */,
 			);
 		};
 /* End PBXProject section */
@@ -384,7 +502,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B18C2FCE2D67398F00E62EDF /* Resources */ = {
+		B18C30AE2D6C1FBA00E62EDF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B18C30DA2D6C40CC00E62EDF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -415,7 +540,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B18C2FCC2D67398F00E62EDF /* Sources */ = {
+		B18C30AC2D6C1FBA00E62EDF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B18C30D82D6C40CC00E62EDF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -440,15 +572,30 @@
 			target = B18C2F6A2D66CB0800E62EDF /* HiGameSDK-Core */;
 			targetProxy = B18C2FC42D67209500E62EDF /* PBXContainerItemProxy */;
 		};
-		B18C2FE82D6739BE00E62EDF /* PBXTargetDependency */ = {
+		B18C30CC2D6C208200E62EDF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B18C2F6A2D66CB0800E62EDF /* HiGameSDK-Core */;
-			targetProxy = B18C2FE72D6739BE00E62EDF /* PBXContainerItemProxy */;
+			targetProxy = B18C30CB2D6C208200E62EDF /* PBXContainerItemProxy */;
 		};
-		B18C2FED2D6739C100E62EDF /* PBXTargetDependency */ = {
+		B18C30D12D6C208500E62EDF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B18C2FB22D67207700E62EDF /* HiGameSDK-Max */;
-			targetProxy = B18C2FEC2D6739C100E62EDF /* PBXContainerItemProxy */;
+			targetProxy = B18C30D02D6C208500E62EDF /* PBXContainerItemProxy */;
+		};
+		B18C30E12D6C40CC00E62EDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B18C30DB2D6C40CC00E62EDF /* HiGameSDK-Account */;
+			targetProxy = B18C30E02D6C40CC00E62EDF /* PBXContainerItemProxy */;
+		};
+		B18C30F62D6C475300E62EDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B18C2F6A2D66CB0800E62EDF /* HiGameSDK-Core */;
+			targetProxy = B18C30F52D6C475300E62EDF /* PBXContainerItemProxy */;
+		};
+		B18C30FF2D6C554900E62EDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B18C30DB2D6C40CC00E62EDF /* HiGameSDK-Account */;
+			targetProxy = B18C30FE2D6C554900E62EDF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -773,7 +920,7 @@
 			};
 			name = Release;
 		};
-		B18C2FE32D67399100E62EDF /* Debug */ = {
+		B18C30C32D6C1FBB00E62EDF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -782,7 +929,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K92GXD5795;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "HiGameSDK-SwiftDemo/Info.plist";
+				INFOPLIST_FILE = "HiGameSDK-SwiftTest/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -793,7 +940,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-SwiftDemo";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-SwiftTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -801,7 +948,7 @@
 			};
 			name = Debug;
 		};
-		B18C2FE42D67399100E62EDF /* Release */ = {
+		B18C30C42D6C1FBB00E62EDF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -810,7 +957,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K92GXD5795;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "HiGameSDK-SwiftDemo/Info.plist";
+				INFOPLIST_FILE = "HiGameSDK-SwiftTest/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -821,11 +968,84 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-SwiftDemo";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-SwiftTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B18C30E62D6C40CC00E62EDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = K92GXD5795;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-Account";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B18C30E72D6C40CC00E62EDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = K92GXD5795;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-Account";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -868,11 +1088,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B18C2FE22D67399100E62EDF /* Build configuration list for PBXNativeTarget "HiGameSDK-SwiftDemo" */ = {
+		B18C30C22D6C1FBB00E62EDF /* Build configuration list for PBXNativeTarget "HiGameSDK-SwiftTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B18C2FE32D67399100E62EDF /* Debug */,
-				B18C2FE42D67399100E62EDF /* Release */,
+				B18C30C32D6C1FBB00E62EDF /* Debug */,
+				B18C30C42D6C1FBB00E62EDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B18C30E52D6C40CC00E62EDF /* Build configuration list for PBXNativeTarget "HiGameSDK-Account" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B18C30E62D6C40CC00E62EDF /* Debug */,
+				B18C30E72D6C40CC00E62EDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

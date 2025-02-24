@@ -10,7 +10,7 @@ public protocol HiGameSdkBaseProtocol {
     var moduleName:String { get }
     //初始化
     init()
-    func initialize(delegate: HiGameSDKInitDelegate?)
+    func initialize(_ delegate: HiGameSDKInitDelegate?)
     
     func onInitSDK(_ config : HiGameSDKConfig)
     

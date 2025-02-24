@@ -14,7 +14,8 @@ public class HiGameSDKConfig {
     private var config: [String: Any] = [:]
     
     // 默认配置文件名
-    private let defaultFileName = "HiGameSDKConfig.json"
+    private let defaultFileName = "HiGameSDKConfig"
+    private let defaultFileExtension = "json"
     
     // 私有初始化方法，防止外部创建实例
     private init() {
@@ -29,9 +30,11 @@ public class HiGameSDKConfig {
     // 加载默认配置文件
     private func loadDefaultConfig() throws {
         // 获取默认文件路径
-        guard let filePath = Bundle.main.path(forResource: defaultFileName, ofType: nil) else {
+        guard let filePath = Bundle.main.path(forResource: defaultFileName, ofType: defaultFileExtension) else {
             throw NSError(domain: "HiGameSDKConfig", code: 404, userInfo: [NSLocalizedDescriptionKey: "Default configuration file not found in bundle."])
         }
+        
+        print("Loading configuration file from path: \(filePath)")
         
         // 加载 JSON 文件
         try loadFromJSON(filePath: filePath)
@@ -59,6 +62,11 @@ public class HiGameSDKConfig {
     // 获取配置参数
     public subscript(key: String) -> Any? {
         return config[key]
+    }
+    
+    // 检查配置是否为空
+    public var isEmpty: Bool {
+        return config.isEmpty
     }
     
     // 将当前配置导出为 JSON 字符串

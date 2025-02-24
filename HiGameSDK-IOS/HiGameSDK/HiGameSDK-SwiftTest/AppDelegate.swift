@@ -1,19 +1,19 @@
 //
 //  AppDelegate.swift
-//  HiGameSDK-SwiftDemo
+//  HiGameSDK-SwiftTest
 //
-//  Created by neillwu on 2025/2/20.
+//  Created by neillwu on 2025/2/24.
 //
 
 import UIKit
-import HiGameSDK_Core
-import HiGameSDK_Max
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // 在应用启动时注册HiGameSDKMax模块
+        // Override point for customization after application launch.
         return true
     }
 
@@ -30,5 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+
+
 }
 

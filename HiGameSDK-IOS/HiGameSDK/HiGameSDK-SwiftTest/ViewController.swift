@@ -7,6 +7,7 @@
 
 import UIKit
 import HiGameSDK_Core
+import HiGameSDK_Max
 
 class ViewController: UIViewController {
     
@@ -100,53 +101,34 @@ class ViewController: UIViewController {
     // SDK功能实现
     private func initializeSDK() {
         appendLog("开始初始化SDK...")
+        HiGameSDK.shared.setAdDelegate(self) // 设置广告代理
         HiGameSDK.shared.initSDK(self)
     }
     
     private func loadBannerAd() {
         appendLog("开始加载Banner广告...")
-//        if let adModule = HiGameSDKManager.shared.getModule(HiGameSDKAdProtocol.self) {
-//            adModule.loadAd()
-//            appendLog("Banner广告加载请求已发送")
-//        } else {
-//            appendLog("错误：未找到广告模块")
-//        }
+        HiGameSDK.shared.loadAd(.banner)
     }
     
     private func showBannerAd() {
         appendLog("开始展示Banner广告...")
-//        if let adModule = HiGameSDKManager.shared.getModule(HiGameSDKAdProtocol.self) {
-//            adModule.showAd()
-//            appendLog("Banner广告展示请求已发送")
-//        } else {
-//            appendLog("错误：未找到广告模块")
-//        }
+        HiGameSDK.shared.showAd(.banner)
     }
     
     private func loadInterstitialAd() {
         appendLog("开始加载插屏广告...")
-//        if let adModule = HiGameSDKManager.shared.getModule(HiGameSDKAdProtocol.self) {
-//            adModule.loadAd()
-//            appendLog("插屏广告加载请求已发送")
-//        } else {
-//            appendLog("错误：未找到广告模块")
-//        }
+        HiGameSDK.shared.loadAd(.interstitial)
     }
     
     private func showInterstitialAd() {
         appendLog("开始展示插屏广告...")
-//        if let adModule = HiGameSDKManager.shared.getModule(HiGameSDKAdProtocol.self) {
-//            adModule.showAd()
-//            appendLog("插屏广告展示请求已发送")
-//        } else {
-//            appendLog("错误：未找到广告模块")
-//        }
+        HiGameSDK.shared.showAd(.interstitial)
     }
 }
 
 // MARK: - HiGameSDKInitDelegate
 extension ViewController: HiGameSDKInitDelegate {
-    func onInitSuccess(data: NSObject) {
+    func onInitSuccess(data: String) {
         appendLog("SDK初始化成功：\(data)")
     }
     
@@ -155,3 +137,33 @@ extension ViewController: HiGameSDKInitDelegate {
     }
 }
 
+// MARK: - HiGameAdDelegate
+extension ViewController: HiGameAdDelegate {
+    func adDidLoad(adType: HiGameAdType) {
+        appendLog("\(adType.rawValue) 广告加载成功")
+    }
+    
+    func adDidFailToLoad(adType: HiGameAdType, code: Int, message: String) {
+        appendLog("\(adType.rawValue) 广告加载失败：[\(code)] \(message)")
+    }
+    
+    func adDidShow(adType: HiGameAdType) {
+        appendLog("\(adType.rawValue) 广告展示成功")
+    }
+    
+    func adDidFailToShow(adType: HiGameAdType, code: Int, message: String) {
+        appendLog("\(adType.rawValue) 广告展示失败：[\(code)] \(message)")
+    }
+    
+    func adDidClick(adType: HiGameAdType) {
+        appendLog("\(adType.rawValue) 广告被点击")
+    }
+    
+    func adDidClose(adType: HiGameAdType) {
+        appendLog("\(adType.rawValue) 广告关闭")
+    }
+    
+    func adDidReward(adType: HiGameAdType) {
+        appendLog("\(adType.rawValue) 广告奖励发放")
+    }
+}

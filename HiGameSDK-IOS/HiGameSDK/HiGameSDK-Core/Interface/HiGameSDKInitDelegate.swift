@@ -7,8 +7,8 @@
 
 public protocol HiGameSDKInitDelegate : AnyObject {
     /// 初始化成功的回调
-    func onInitSuccess(data: NSObject)
+    func onInitSuccess(data: String)
     
     /// 初始化失败的回调
-    func onInitFailed(code: Int, errorMessage: String)
+    func onInitFailed(code: Int,errorMessage: String)
 }

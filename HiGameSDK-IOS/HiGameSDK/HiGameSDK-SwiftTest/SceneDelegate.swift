@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  HiGameSDK-SwiftDemo
+//  HiGameSDK-SwiftTest
 //
-//  Created by neillwu on 2025/2/20.
+//  Created by neillwu on 2025/2/24.
 //
 
 import UIKit

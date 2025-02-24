@@ -7,11 +7,6 @@
 import HiGameSDK_Core
 import Foundation
 
-// 模块工厂函数
-public func createHiGameSDKMaxModule() -> HiGameSdkBaseProtocol {
-    return HiGameSDKMax()
-}
-
 public class HiGameSDKMax: HiGameSDKAdProtocol {
     // 模块名称
     public var moduleName: String = "HiGameSDKMax"
@@ -30,17 +25,15 @@ public class HiGameSDKMax: HiGameSDKAdProtocol {
     // 构造函数
     public required init() {
         HiGameLog.d("\(moduleName) instance created.")
-        // 在初始化时自动注册模块
-        HiGameSDKManager.shared.addModuleFactory(createHiGameSDKMaxModule)
     }
     
     // 协议方法：初始化模块
-    public func initialize(delegate: HiGameSDKInitDelegate?) {
+    public func initialize(_ delegate: HiGameSDKInitDelegate?) {
         self.initDelegate = delegate
         HiGameLog.d("\(moduleName) initialized with delegate.")
         
         // 在初始化完成后立即通知成功
-        let initData = NSObject()
+        let initData = "Ad Successful"
         initDelegate?.onInitSuccess(data: initData)
     }
     
@@ -56,7 +49,7 @@ public class HiGameSDKMax: HiGameSDKAdProtocol {
     }
     
     // 设置广告代理
-    public func setAdDelegate(_ delegate: HiGameAdDelegate) {
+    public func setAdDelegate(delegate: HiGameAdDelegate) {
         self.adDelegate = delegate
         bannerAd.setAdDelegate(delegate)
         interstitialAd.setAdDelegate(delegate)
