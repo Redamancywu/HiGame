@@ -127,8 +127,8 @@ public class NetworkService: NetworkRequestable {
     }
     
     public func download(_ url: String,
-                        headers: [String: String]?,
-                        destination: URL) async throws -> URL {
+                         headers: [String: String]?,
+                         destination: URL) async throws -> URL {
         guard let url = URL(string: url) else {
             throw NetworkError.invalidURL
         }
@@ -136,22 +136,50 @@ public class NetworkService: NetworkRequestable {
         var request = URLRequest(url: url)
         headers?.forEach { request.setValue($1, forHTTPHeaderField: $0) }
         
-        let (tempURL, response) = try await session.download(for: request)
-        
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw NetworkError.unknown(NSError(domain: "", code: -1))
+        // 使用 URLSessionDataTask 替代 download(for:delegate:)
+        return try await withCheckedThrowingContinuation { continuation in
+            let task = session.downloadTask(with: request) { tempURL, response, error in
+                do {
+                    // 检查错误
+                    if let error = error {
+                        continuation.resume(throwing: error)
+                        return
+                    }
+                    
+                    // 确保有临时文件路径
+                    guard let tempURL = tempURL else {
+                        continuation.resume(throwing: NetworkError.unknown(NSError(domain: "", code: -1)))
+                        return
+                    }
+                    
+                    // 验证 HTTP 响应
+                    guard let httpResponse = response as? HTTPURLResponse else {
+                        continuation.resume(throwing: NetworkError.unknown(NSError(domain: "", code: -1)))
+                        return
+                    }
+                    
+                    guard (200...299).contains(httpResponse.statusCode) else {
+                        continuation.resume(throwing: NetworkError.serverError(httpResponse.statusCode))
+                        return
+                    }
+                    
+                    // 如果目标文件已存在，则删除
+                    if FileManager.default.fileExists(atPath: destination.path) {
+                        try FileManager.default.removeItem(at: destination)
+                    }
+                    
+                    // 移动临时文件到目标路径
+                    try FileManager.default.moveItem(at: tempURL, to: destination)
+                    
+                    // 返回目标路径
+                    continuation.resume(returning: destination)
+                } catch {
+                    continuation.resume(throwing: error)
+                }
+            }
+            
+            // 启动任务
+            task.resume()
         }
-        
-        guard (200...299).contains(httpResponse.statusCode) else {
-            throw NetworkError.serverError(httpResponse.statusCode)
-        }
-        
-        if FileManager.default.fileExists(atPath: destination.path) {
-            try FileManager.default.removeItem(at: destination)
-        }
-        
-        try FileManager.default.moveItem(at: tempURL, to: destination)
-        
-        return destination
     }
 }

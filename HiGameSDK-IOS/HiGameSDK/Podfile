@@ -1,0 +1,82 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'HiGameSDK' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for HiGameSDK
+
+end
+def   csj_ad
+  pod 'Ads-CN-Beta', '6.7.0.3', :subspecs => ['CSJMediation']
+  # 引入融合Adapters(推荐使用自动拉取adapter工具，此处无需引入)
+  pod 'GMGdtAdapter-Beta', '4.15.10.1'
+  pod 'GMBaiduAdapter-Beta', '5.370.2'
+  pod 'GMKsAdapter-Beta', '3.3.71.1'
+  pod 'GMSigmobAdapter-Beta', '4.15.3.1'
+  pod 'GMMintegralAdapter-Beta', '7.7.3.1'
+  pod 'GMAdmobAdapter-Beta', '10.0.0.0'
+  pod 'GMUnityAdapter-Beta', '4.3.0.0'
+  # 引入使用到的ADN SDK，开发者请按需引入
+  pod 'GDTMobSDK', '4.15.10'
+  pod 'BaiduMobAdSDK', '5.370'
+  pod 'KSAdSDK', '3.3.71'
+  pod 'SigmobAd-iOS', '4.15.3'
+#  pod 'MintegralAdSDK', '7.7.3', :subspecs => [
+ #   'SplashAd',
+  #  'InterstitialAd',
+ #   'NewInterstitialAd',
+  #  'InterstitialVideoAd',
+  #  'RewardVideoAd',
+  #  'NativeAd',
+   # 'NativeAdvancedAd',
+ #   'BannerAd',
+  #  'BidNativeAd',
+  #  'BidNewInterstitialAd',
+ #   'BidInterstitialVideoAd',
+  #  'BidRewardVideoAd'
+ # ]
+   #               pod 'Google-Mobile-Ads-SDK', '10.0.0'
+  pod 'UnityAds', '4.3.0'
+  pod 'BUAdTestMeasurement-Beta','6.7.0.3', :configuration => ['Debug']
+  
+end
+target 'HiGameSDK-Account' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for HiGameSDK-Account
+
+end
+
+target 'HiGameSDK-Core' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for HiGameSDK-Core
+
+end
+
+target 'HiGameSDK-Max' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for HiGameSDK-Max
+
+end
+
+target 'HiGameSDK-SwiftTest' do
+  csj_ad
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for HiGameSDK-SwiftTest
+
+end
+target 'HiGameSDK-TTAd' do
+  csj_ad
+  use_frameworks!
+
+end
+

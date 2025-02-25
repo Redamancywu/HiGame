@@ -7,7 +7,7 @@
 
 import UIKit
 import HiGameSDK_Core
-import HiGameSDK_Max
+
 
 class ViewController: UIViewController {
     
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         ])
         
         // 添加按钮
-        let buttonTitles = ["初始化SDK", "加载Banner广告", "展示Banner广告", "加载插屏广告", "展示插屏广告"]
+        let buttonTitles = ["初始化SDK", "加载Banner广告", "展示Banner广告", "加载插屏广告", "展示插屏广告","广告加载状态"]
         buttonTitles.forEach { title in
             let button = UIButton(type: .system)
             button.setTitle(title, for: .normal)
@@ -85,6 +85,8 @@ class ViewController: UIViewController {
             loadInterstitialAd()
         case "展示插屏广告":
             showInterstitialAd()
+        case "广告加载状态":
+            loadAdStatus()
         default:
             break
         }
@@ -108,6 +110,20 @@ class ViewController: UIViewController {
     private func loadBannerAd() {
         appendLog("开始加载Banner广告...")
         HiGameSDK.shared.loadAd(.banner)
+
+        
+    }
+    private func loadAdStatus(){
+        //检查是否已加载广告
+        let loaderResults = HiGameSDK.shared.isAdLoad(.banner)
+        // 检查广告是否准备好
+        let readyResults = HiGameSDK.shared.isAdReady(.banner)
+        HiGameLog.d("是否已加载广告:\(loaderResults),是否已经准备哦好广告:\(readyResults)")
+        //检查是否已加载广告
+        let InloaderResults = HiGameSDK.shared.isAdLoad(.interstitial)
+        // 检查广告是否准备好
+        let InreadyResults = HiGameSDK.shared.isAdReady(.interstitial)
+        HiGameLog.d("是否已加载广告:\(InloaderResults),是否已经准备哦好广告:\(InreadyResults)")
     }
     
     private func showBannerAd() {
@@ -118,6 +134,7 @@ class ViewController: UIViewController {
     private func loadInterstitialAd() {
         appendLog("开始加载插屏广告...")
         HiGameSDK.shared.loadAd(.interstitial)
+
     }
     
     private func showInterstitialAd() {

@@ -37,4 +37,10 @@ public class HiGameSDK {
     public func showAd(_ adType: HiGameAdType) {
         HiGameSDKManager.shared.showAd(adType)
     }
+    public func isAdReady(_ adType:HiGameAdType) ->[String : Bool] {
+        HiGameSDKManager.shared.isAdReady(adType)
+    }
+    public func isAdLoad(_ adType:HiGameAdType) -> [String : Bool]  {
+        HiGameSDKManager.shared.isAdLoaded(adType)
+    }
 }

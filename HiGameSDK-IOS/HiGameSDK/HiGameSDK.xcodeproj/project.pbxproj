@@ -7,19 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5233DD205058BB1C7FE0EF00 /* Pods_HiGameSDK_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B472E5A76C7AF3A324880303 /* Pods_HiGameSDK_Core.framework */; };
+		A9C913A648354528AFDB5A62 /* Pods_HiGameSDK_Max.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E86204DFAF0932D7C45B307 /* Pods_HiGameSDK_Max.framework */; };
+		AED1D5613795F4ACD995F985 /* Pods_HiGameSDK_Account.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768705DD169DF0683B51D104 /* Pods_HiGameSDK_Account.framework */; };
 		B18C2F712D66CB0800E62EDF /* HiGameSDK_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; };
 		B18C2FB92D67207700E62EDF /* HiGameSDK_Max.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2FB32D67207700E62EDF /* HiGameSDK_Max.framework */; };
-		B18C2FC22D67209500E62EDF /* HiGameSDK_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; };
-		B18C30D22D6C218500E62EDF /* HiGameSDK_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; };
-		B18C30D32D6C218500E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B18C30D52D6C218600E62EDF /* HiGameSDK_Max.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2FB32D67207700E62EDF /* HiGameSDK_Max.framework */; };
-		B18C30D62D6C218600E62EDF /* HiGameSDK_Max.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2FB32D67207700E62EDF /* HiGameSDK_Max.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B18C30E22D6C40CC00E62EDF /* HiGameSDK_Account.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C30DC2D6C40CC00E62EDF /* HiGameSDK_Account.framework */; };
 		B18C30E32D6C40CC00E62EDF /* HiGameSDK_Account.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C30DC2D6C40CC00E62EDF /* HiGameSDK_Account.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B18C30F32D6C475300E62EDF /* HiGameSDK_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; };
-		B18C30F42D6C475300E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B18C30FC2D6C554900E62EDF /* HiGameSDK_Account.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C30DC2D6C40CC00E62EDF /* HiGameSDK_Account.framework */; };
-		B18C30FD2D6C554900E62EDF /* HiGameSDK_Account.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C30DC2D6C40CC00E62EDF /* HiGameSDK_Account.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B18C310B2D6C68BA00E62EDF /* HiGameSDK_TTAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C31052D6C68BA00E62EDF /* HiGameSDK_TTAd.framework */; };
+		B18C310C2D6C68BA00E62EDF /* HiGameSDK_TTAd.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C31052D6C68BA00E62EDF /* HiGameSDK_TTAd.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B18C325A2D6D63E600E62EDF /* HiGameSDK_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; };
+		B18C325B2D6D63E600E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B18C325D2D6D63E700E62EDF /* BUAdSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19E5C902D6C791300BDAA62 /* BUAdSDK.xcframework */; };
+		B18C325F2D6D63EB00E62EDF /* HiGameSDK_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; };
+		B18C32602D6D63EB00E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B18C32622D6D63F200E62EDF /* HiGameSDK_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; };
+		B18C32632D6D63F200E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B18C32652D6D63F300E62EDF /* HiGameSDK_TTAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C31052D6C68BA00E62EDF /* HiGameSDK_TTAd.framework */; };
+		B18C32662D6D63F300E62EDF /* HiGameSDK_TTAd.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C31052D6C68BA00E62EDF /* HiGameSDK_TTAd.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B18C32672D6D63F400E62EDF /* Pods_HiGameSDK_SwiftTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF40BFABF4D11FC4E7883337 /* Pods_HiGameSDK_SwiftTest.framework */; };
+		B18C32682D6D63F400E62EDF /* Pods_HiGameSDK_SwiftTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF40BFABF4D11FC4E7883337 /* Pods_HiGameSDK_SwiftTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B18C326B2D6D63F900E62EDF /* HiGameSDK_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; };
+		B18C326C2D6D63F900E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B18C32D32D6D650700E62EDF /* HiGameSDK_Account.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C30DC2D6C40CC00E62EDF /* HiGameSDK_Account.framework */; };
+		B18C32D42D6D650700E62EDF /* HiGameSDK_Account.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C30DC2D6C40CC00E62EDF /* HiGameSDK_Account.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B18C32D72D6D650F00E62EDF /* HiGameSDK_Max.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2FB32D67207700E62EDF /* HiGameSDK_Max.framework */; };
+		B18C32D82D6D650F00E62EDF /* HiGameSDK_Max.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B18C2FB32D67207700E62EDF /* HiGameSDK_Max.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B18C33492D6D9F2C00E62EDF /* BUAdTestMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19E5C962D6C791B00BDAA62 /* BUAdTestMeasurement.xcframework */; };
+		B18C334A2D6D9F2C00E62EDF /* BUAdTestMeasurement.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B19E5C962D6C791B00BDAA62 /* BUAdTestMeasurement.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B19E5C292D6C77DD00BDAA62 /* Pods_HiGameSDK_TTAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D7FEA5D871893D65827E2E /* Pods_HiGameSDK_TTAd.framework */; };
+		EA2657EA9A072831906881C5 /* Pods_HiGameSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B397F5E019AF064AA42BD9 /* Pods_HiGameSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,13 +68,6 @@
 			remoteGlobalIDString = B18C2F6A2D66CB0800E62EDF;
 			remoteInfo = "HiGameSDK-Core";
 		};
-		B18C30D02D6C208500E62EDF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B18C2F4D2D66CAB400E62EDF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B18C2FB22D67207700E62EDF;
-			remoteInfo = "HiGameSDK-Max";
-		};
 		B18C30E02D6C40CC00E62EDF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B18C2F4D2D66CAB400E62EDF /* Project object */;
@@ -72,29 +82,44 @@
 			remoteGlobalIDString = B18C2F6A2D66CB0800E62EDF;
 			remoteInfo = "HiGameSDK-Core";
 		};
-		B18C30FE2D6C554900E62EDF /* PBXContainerItemProxy */ = {
+		B18C31092D6C68BA00E62EDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B18C2F4D2D66CAB400E62EDF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B18C31042D6C68BA00E62EDF;
+			remoteInfo = "HiGameSDK-TTAd";
+		};
+		B18C32D52D6D650700E62EDF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B18C2F4D2D66CAB400E62EDF /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B18C30DB2D6C40CC00E62EDF;
 			remoteInfo = "HiGameSDK-Account";
 		};
+		B18C32D92D6D650F00E62EDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B18C2F4D2D66CAB400E62EDF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B18C2FB22D67207700E62EDF;
+			remoteInfo = "HiGameSDK-Max";
+		};
+		B19E5C132D6C6A3300BDAA62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B18C2F4D2D66CAB400E62EDF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B18C2F6A2D66CB0800E62EDF;
+			remoteInfo = "HiGameSDK-Core";
+		};
+		B19E5C272D6C771800BDAA62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B18C2F4D2D66CAB400E62EDF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B18C31042D6C68BA00E62EDF;
+			remoteInfo = "HiGameSDK-TTAd";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B18C30D42D6C218500E62EDF /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B18C30FD2D6C554900E62EDF /* HiGameSDK_Account.framework in Embed Frameworks */,
-				B18C30D32D6C218500E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */,
-				B18C30D62D6C218600E62EDF /* HiGameSDK_Max.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B18C30E82D6C40CC00E62EDF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -102,17 +127,56 @@
 			dstSubfolderSpec = 10;
 			files = (
 				B18C30E32D6C40CC00E62EDF /* HiGameSDK_Account.framework in Embed Frameworks */,
+				B18C310C2D6C68BA00E62EDF /* HiGameSDK_TTAd.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B18C30F72D6C475300E62EDF /* Embed Frameworks */ = {
+		B18C325C2D6D63E600E62EDF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B18C30F42D6C475300E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */,
+				B18C334A2D6D9F2C00E62EDF /* BUAdTestMeasurement.xcframework in Embed Frameworks */,
+				B18C325B2D6D63E600E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B18C32612D6D63EB00E62EDF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B18C32602D6D63EB00E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B18C32642D6D63F200E62EDF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B18C32D82D6D650F00E62EDF /* HiGameSDK_Max.framework in Embed Frameworks */,
+				B18C32D42D6D650700E62EDF /* HiGameSDK_Account.framework in Embed Frameworks */,
+				B18C32632D6D63F200E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */,
+				B18C32662D6D63F300E62EDF /* HiGameSDK_TTAd.framework in Embed Frameworks */,
+				B18C32682D6D63F400E62EDF /* Pods_HiGameSDK_SwiftTest.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B18C326D2D6D63F900E62EDF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B18C326C2D6D63F900E62EDF /* HiGameSDK_Core.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,11 +184,71 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		017569733ABF49F80B8B4660 /* Pods-HiGameSDK-SwiftTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiGameSDK-SwiftTest.debug.xcconfig"; path = "Target Support Files/Pods-HiGameSDK-SwiftTest/Pods-HiGameSDK-SwiftTest.debug.xcconfig"; sourceTree = "<group>"; };
+		0BB919175182A4F7F9857C34 /* Pods-HiGameSDK-TTAd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiGameSDK-TTAd.debug.xcconfig"; path = "Target Support Files/Pods-HiGameSDK-TTAd/Pods-HiGameSDK-TTAd.debug.xcconfig"; sourceTree = "<group>"; };
+		1843514848467748AAB7E9E9 /* Pods-HiGameSDK-Account.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiGameSDK-Account.debug.xcconfig"; path = "Target Support Files/Pods-HiGameSDK-Account/Pods-HiGameSDK-Account.debug.xcconfig"; sourceTree = "<group>"; };
+		2C4FF8FF9FFA988D67517720 /* Pods-HiGameSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiGameSDK.debug.xcconfig"; path = "Target Support Files/Pods-HiGameSDK/Pods-HiGameSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		53BBAB554F714964F4CE7731 /* Pods-HiGameSDK-SwiftTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiGameSDK-SwiftTest.release.xcconfig"; path = "Target Support Files/Pods-HiGameSDK-SwiftTest/Pods-HiGameSDK-SwiftTest.release.xcconfig"; sourceTree = "<group>"; };
+		5F8210D5B00A492F9595F115 /* Pods-HiGameSDK-Core.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiGameSDK-Core.release.xcconfig"; path = "Target Support Files/Pods-HiGameSDK-Core/Pods-HiGameSDK-Core.release.xcconfig"; sourceTree = "<group>"; };
+		69F07DEAEE16422B6A900750 /* Pods-HiGameSDK-TTAd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiGameSDK-TTAd.release.xcconfig"; path = "Target Support Files/Pods-HiGameSDK-TTAd/Pods-HiGameSDK-TTAd.release.xcconfig"; sourceTree = "<group>"; };
+		768705DD169DF0683B51D104 /* Pods_HiGameSDK_Account.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiGameSDK_Account.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E86204DFAF0932D7C45B307 /* Pods_HiGameSDK_Max.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiGameSDK_Max.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		857BBA052E24F66DA0909DB7 /* Pods-HiGameSDK-Core.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiGameSDK-Core.debug.xcconfig"; path = "Target Support Files/Pods-HiGameSDK-Core/Pods-HiGameSDK-Core.debug.xcconfig"; sourceTree = "<group>"; };
+		94B397F5E019AF064AA42BD9 /* Pods_HiGameSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiGameSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BF0F97119E66C491925E2D2 /* Pods-HiGameSDK-Max.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiGameSDK-Max.debug.xcconfig"; path = "Target Support Files/Pods-HiGameSDK-Max/Pods-HiGameSDK-Max.debug.xcconfig"; sourceTree = "<group>"; };
+		A82C1D44DF252593B1B9AE22 /* Pods-HiGameSDK-Account.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiGameSDK-Account.release.xcconfig"; path = "Target Support Files/Pods-HiGameSDK-Account/Pods-HiGameSDK-Account.release.xcconfig"; sourceTree = "<group>"; };
 		B18C2F552D66CAB400E62EDF /* HiGameSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiGameSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HiGameSDK_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18C2FB32D67207700E62EDF /* HiGameSDK_Max.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HiGameSDK_Max.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18C30B02D6C1FBA00E62EDF /* HiGameSDK-SwiftTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HiGameSDK-SwiftTest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18C30DC2D6C40CC00E62EDF /* HiGameSDK_Account.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HiGameSDK_Account.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B18C31052D6C68BA00E62EDF /* HiGameSDK_TTAd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HiGameSDK_TTAd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B18C317A2D6D5BFB00E62EDF /* BUTTSDKFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BUTTSDKFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B18C31812D6D5D5D00E62EDF /* BUTTSDKFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BUTTSDKFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B18C31842D6D5DC300E62EDF /* BUTTSDKFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BUTTSDKFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B18C31882D6D5E0900E62EDF /* TTSDKCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TTSDKCore.xcframework; path = Pods/BUTTSDKFramework/TTSDKFramework/TTSDKCore/TTSDKCore.xcframework; sourceTree = "<group>"; };
+		B18C318B2D6D5E0E00E62EDF /* BUTTSDKFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BUTTSDKFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B19E5C202D6C711800BDAA62 /* TTSDKTTFFmpegLiveLite.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TTSDKTTFFmpegLiveLite.xcframework; path = Pods/BUTTSDKFramework/TTSDKFramework/TTSDKTTFFmpegLiveLite/TTSDKTTFFmpegLiveLite.xcframework; sourceTree = "<group>"; };
+		B19E5C902D6C791300BDAA62 /* BUAdSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = BUAdSDK.xcframework; path = "Pods/Ads-CN-Beta/SDK/BUAdSDK.xcframework"; sourceTree = "<group>"; };
+		B19E5C932D6C791700BDAA62 /* BUAdLive.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = BUAdLive.xcframework; path = "Pods/Ads-CN-Beta/SDK/BUAdLive.xcframework"; sourceTree = "<group>"; };
+		B19E5C962D6C791B00BDAA62 /* BUAdTestMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = BUAdTestMeasurement.xcframework; path = "Pods/BUAdTestMeasurement-Beta/BUAdTestMeasurement/BUAdTestMeasurement.xcframework"; sourceTree = "<group>"; };
+		B19E5C992D6C793300BDAA62 /* BUTTSDKFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BUTTSDKFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B19E5D702D6C7F4300BDAA62 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		B19E5D722D6C7F5100BDAA62 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		B19E5D742D6C7F5C00BDAA62 /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
+		B19E5D762D6C7F7200BDAA62 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		B19E5D772D6C7F7200BDAA62 /* AVFAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFAudio.framework; path = System/Library/Frameworks/AVFAudio.framework; sourceTree = SDKROOT; };
+		B19E5D7A2D6C7FC900BDAA62 /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
+		B19E5D7B2D6C7FC900BDAA62 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		B19E5D7C2D6C7FC900BDAA62 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		B19E5D7D2D6C7FC900BDAA62 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		B19E5D7E2D6C7FC900BDAA62 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		B19E5D7F2D6C7FC900BDAA62 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B19E5D802D6C7FC900BDAA62 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		B19E5D812D6C7FC900BDAA62 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B19E5D8A2D6C7FDE00BDAA62 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		B19E5D8C2D6C7FE700BDAA62 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B19E5D8E2D6C7FF200BDAA62 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		B19E5D902D6C7FFD00BDAA62 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		B19E5D922D6C800800BDAA62 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B19E5D942D6C801400BDAA62 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B19E5D982D6C802500BDAA62 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B19E5D9A2D6C802A00BDAA62 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B19E5D9C2D6C803200BDAA62 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		B19E5D9E2D6C803F00BDAA62 /* DeviceCheck.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceCheck.framework; path = System/Library/Frameworks/DeviceCheck.framework; sourceTree = SDKROOT; };
+		B19E5DA02D6C806900BDAA62 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		B19E5DA22D6C807900BDAA62 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		B19E5DA42D6C808400BDAA62 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		B19E5DA62D6C808C00BDAA62 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
+		B19E5DA82D6C809600BDAA62 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		B19E5DAA2D6C809F00BDAA62 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		B19E5DAC2D6C80AB00BDAA62 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		B19E5DAE2D6C80B700BDAA62 /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
+		B472E5A76C7AF3A324880303 /* Pods_HiGameSDK_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiGameSDK_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9C7E47BBDD624776A16F9FA /* Pods-HiGameSDK-Max.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiGameSDK-Max.release.xcconfig"; path = "Target Support Files/Pods-HiGameSDK-Max/Pods-HiGameSDK-Max.release.xcconfig"; sourceTree = "<group>"; };
+		BF40BFABF4D11FC4E7883337 /* Pods_HiGameSDK_SwiftTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiGameSDK_SwiftTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1FDAF897D42DAA972C38C7A /* Pods-HiGameSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiGameSDK.release.xcconfig"; path = "Target Support Files/Pods-HiGameSDK/Pods-HiGameSDK.release.xcconfig"; sourceTree = "<group>"; };
+		E3D7FEA5D871893D65827E2E /* Pods_HiGameSDK_TTAd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiGameSDK_TTAd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -196,6 +320,11 @@
 			path = "HiGameSDK-Account";
 			sourceTree = "<group>";
 		};
+		B18C31062D6C68BA00E62EDF /* HiGameSDK-TTAd */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "HiGameSDK-TTAd";
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,8 +333,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B18C30E22D6C40CC00E62EDF /* HiGameSDK_Account.framework in Frameworks */,
+				B18C310B2D6C68BA00E62EDF /* HiGameSDK_TTAd.framework in Frameworks */,
 				B18C2F712D66CB0800E62EDF /* HiGameSDK_Core.framework in Frameworks */,
 				B18C2FB92D67207700E62EDF /* HiGameSDK_Max.framework in Frameworks */,
+				EA2657EA9A072831906881C5 /* Pods_HiGameSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +344,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5233DD205058BB1C7FE0EF00 /* Pods_HiGameSDK_Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +352,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B18C2FC22D67209500E62EDF /* HiGameSDK_Core.framework in Frameworks */,
+				A9C913A648354528AFDB5A62 /* Pods_HiGameSDK_Max.framework in Frameworks */,
+				B18C326B2D6D63F900E62EDF /* HiGameSDK_Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,9 +361,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B18C30FC2D6C554900E62EDF /* HiGameSDK_Account.framework in Frameworks */,
-				B18C30D22D6C218500E62EDF /* HiGameSDK_Core.framework in Frameworks */,
-				B18C30D52D6C218600E62EDF /* HiGameSDK_Max.framework in Frameworks */,
+				B18C32672D6D63F400E62EDF /* Pods_HiGameSDK_SwiftTest.framework in Frameworks */,
+				B18C32D32D6D650700E62EDF /* HiGameSDK_Account.framework in Frameworks */,
+				B18C32D72D6D650F00E62EDF /* HiGameSDK_Max.framework in Frameworks */,
+				B18C32652D6D63F300E62EDF /* HiGameSDK_TTAd.framework in Frameworks */,
+				B18C32622D6D63F200E62EDF /* HiGameSDK_Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,13 +373,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B18C30F32D6C475300E62EDF /* HiGameSDK_Core.framework in Frameworks */,
+				AED1D5613795F4ACD995F985 /* Pods_HiGameSDK_Account.framework in Frameworks */,
+				B18C325F2D6D63EB00E62EDF /* HiGameSDK_Core.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B18C31022D6C68BA00E62EDF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B18C33492D6D9F2C00E62EDF /* BUAdTestMeasurement.xcframework in Frameworks */,
+				B18C325D2D6D63E700E62EDF /* BUAdSDK.xcframework in Frameworks */,
+				B18C325A2D6D63E600E62EDF /* HiGameSDK_Core.framework in Frameworks */,
+				B19E5C292D6C77DD00BDAA62 /* Pods_HiGameSDK_TTAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		87023486FE25AF64D16CE6F2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C4FF8FF9FFA988D67517720 /* Pods-HiGameSDK.debug.xcconfig */,
+				D1FDAF897D42DAA972C38C7A /* Pods-HiGameSDK.release.xcconfig */,
+				1843514848467748AAB7E9E9 /* Pods-HiGameSDK-Account.debug.xcconfig */,
+				A82C1D44DF252593B1B9AE22 /* Pods-HiGameSDK-Account.release.xcconfig */,
+				857BBA052E24F66DA0909DB7 /* Pods-HiGameSDK-Core.debug.xcconfig */,
+				5F8210D5B00A492F9595F115 /* Pods-HiGameSDK-Core.release.xcconfig */,
+				9BF0F97119E66C491925E2D2 /* Pods-HiGameSDK-Max.debug.xcconfig */,
+				B9C7E47BBDD624776A16F9FA /* Pods-HiGameSDK-Max.release.xcconfig */,
+				017569733ABF49F80B8B4660 /* Pods-HiGameSDK-SwiftTest.debug.xcconfig */,
+				53BBAB554F714964F4CE7731 /* Pods-HiGameSDK-SwiftTest.release.xcconfig */,
+				0BB919175182A4F7F9857C34 /* Pods-HiGameSDK-TTAd.debug.xcconfig */,
+				69F07DEAEE16422B6A900750 /* Pods-HiGameSDK-TTAd.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B18C2F4C2D66CAB400E62EDF = {
 			isa = PBXGroup;
 			children = (
@@ -253,8 +419,10 @@
 				B18C2FB42D67207700E62EDF /* HiGameSDK-Max */,
 				B18C30B12D6C1FBA00E62EDF /* HiGameSDK-SwiftTest */,
 				B18C30DD2D6C40CC00E62EDF /* HiGameSDK-Account */,
+				B18C31062D6C68BA00E62EDF /* HiGameSDK-TTAd */,
 				B18C2FC12D67209500E62EDF /* Frameworks */,
 				B18C2F562D66CAB400E62EDF /* Products */,
+				87023486FE25AF64D16CE6F2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -266,6 +434,7 @@
 				B18C2FB32D67207700E62EDF /* HiGameSDK_Max.framework */,
 				B18C30B02D6C1FBA00E62EDF /* HiGameSDK-SwiftTest.app */,
 				B18C30DC2D6C40CC00E62EDF /* HiGameSDK_Account.framework */,
+				B18C31052D6C68BA00E62EDF /* HiGameSDK_TTAd.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -273,6 +442,53 @@
 		B18C2FC12D67209500E62EDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B18C318B2D6D5E0E00E62EDF /* BUTTSDKFramework.framework */,
+				B18C31882D6D5E0900E62EDF /* TTSDKCore.xcframework */,
+				B18C31842D6D5DC300E62EDF /* BUTTSDKFramework.framework */,
+				B18C31812D6D5D5D00E62EDF /* BUTTSDKFramework.framework */,
+				B18C317A2D6D5BFB00E62EDF /* BUTTSDKFramework.framework */,
+				B19E5DAE2D6C80B700BDAA62 /* libc++abi.tbd */,
+				B19E5DAC2D6C80AB00BDAA62 /* libz.tbd */,
+				B19E5DAA2D6C809F00BDAA62 /* libxml2.tbd */,
+				B19E5DA82D6C809600BDAA62 /* libsqlite3.tbd */,
+				B19E5DA62D6C808C00BDAA62 /* libresolv.9.tbd */,
+				B19E5DA42D6C808400BDAA62 /* libiconv.tbd */,
+				B19E5DA22D6C807900BDAA62 /* libc++.tbd */,
+				B19E5DA02D6C806900BDAA62 /* libbz2.tbd */,
+				B19E5D9E2D6C803F00BDAA62 /* DeviceCheck.framework */,
+				B19E5D9C2D6C803200BDAA62 /* WebKit.framework */,
+				B19E5D9A2D6C802A00BDAA62 /* UIKit.framework */,
+				B19E5D982D6C802500BDAA62 /* SystemConfiguration.framework */,
+				B19E5D942D6C801400BDAA62 /* Security.framework */,
+				B19E5D922D6C800800BDAA62 /* QuartzCore.framework */,
+				B19E5D902D6C7FFD00BDAA62 /* MobileCoreServices.framework */,
+				B19E5D8E2D6C7FF200BDAA62 /* MediaPlayer.framework */,
+				B19E5D8C2D6C7FE700BDAA62 /* MapKit.framework */,
+				B19E5D8A2D6C7FDE00BDAA62 /* JavaScriptCore.framework */,
+				B19E5D7F2D6C7FC900BDAA62 /* CoreGraphics.framework */,
+				B19E5D7D2D6C7FC900BDAA62 /* CoreImage.framework */,
+				B19E5D812D6C7FC900BDAA62 /* CoreLocation.framework */,
+				B19E5D7C2D6C7FC900BDAA62 /* CoreMedia.framework */,
+				B19E5D7A2D6C7FC900BDAA62 /* CoreML.framework */,
+				B19E5D7B2D6C7FC900BDAA62 /* CoreMotion.framework */,
+				B19E5D7E2D6C7FC900BDAA62 /* CoreTelephony.framework */,
+				B19E5D802D6C7FC900BDAA62 /* CoreText.framework */,
+				B19E5D762D6C7F7200BDAA62 /* AudioToolbox.framework */,
+				B19E5D772D6C7F7200BDAA62 /* AVFAudio.framework */,
+				B19E5D742D6C7F5C00BDAA62 /* AppTrackingTransparency.framework */,
+				B19E5D722D6C7F5100BDAA62 /* AdSupport.framework */,
+				B19E5D702D6C7F4300BDAA62 /* Accelerate.framework */,
+				B19E5C992D6C793300BDAA62 /* BUTTSDKFramework.framework */,
+				B19E5C962D6C791B00BDAA62 /* BUAdTestMeasurement.xcframework */,
+				B19E5C932D6C791700BDAA62 /* BUAdLive.xcframework */,
+				B19E5C902D6C791300BDAA62 /* BUAdSDK.xcframework */,
+				B19E5C202D6C711800BDAA62 /* TTSDKTTFFmpegLiveLite.xcframework */,
+				94B397F5E019AF064AA42BD9 /* Pods_HiGameSDK.framework */,
+				768705DD169DF0683B51D104 /* Pods_HiGameSDK_Account.framework */,
+				B472E5A76C7AF3A324880303 /* Pods_HiGameSDK_Core.framework */,
+				7E86204DFAF0932D7C45B307 /* Pods_HiGameSDK_Max.framework */,
+				BF40BFABF4D11FC4E7883337 /* Pods_HiGameSDK_SwiftTest.framework */,
+				E3D7FEA5D871893D65827E2E /* Pods_HiGameSDK_TTAd.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -301,6 +517,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B18C31002D6C68BA00E62EDF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -308,10 +531,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B18C2F632D66CAB500E62EDF /* Build configuration list for PBXNativeTarget "HiGameSDK" */;
 			buildPhases = (
+				C3822F16FBC76E20C0BFF476 /* [CP] Check Pods Manifest.lock */,
 				B18C2F512D66CAB400E62EDF /* Sources */,
 				B18C2F522D66CAB400E62EDF /* Frameworks */,
 				B18C2F532D66CAB400E62EDF /* Resources */,
 				B18C30E82D6C40CC00E62EDF /* Embed Frameworks */,
+				46E7DEB31B6E2BB0F6126123 /* [CP] Embed Pods Frameworks */,
+				1F5B3A038B3565912AD3C07C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -319,13 +545,12 @@
 				B18C2F702D66CB0800E62EDF /* PBXTargetDependency */,
 				B18C2FB82D67207700E62EDF /* PBXTargetDependency */,
 				B18C30E12D6C40CC00E62EDF /* PBXTargetDependency */,
+				B18C310A2D6C68BA00E62EDF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				B18C2F572D66CAB400E62EDF /* HiGameSDK */,
 			);
 			name = HiGameSDK;
-			packageProductDependencies = (
-			);
 			productName = HiGameSDK;
 			productReference = B18C2F552D66CAB400E62EDF /* HiGameSDK.app */;
 			productType = "com.apple.product-type.application";
@@ -334,6 +559,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B18C2F742D66CB0800E62EDF /* Build configuration list for PBXNativeTarget "HiGameSDK-Core" */;
 			buildPhases = (
+				696FAA286AA3709579451651 /* [CP] Check Pods Manifest.lock */,
 				B18C2F662D66CB0800E62EDF /* Headers */,
 				B18C2F672D66CB0800E62EDF /* Sources */,
 				B18C2F682D66CB0800E62EDF /* Frameworks */,
@@ -347,8 +573,6 @@
 				B18C2F6C2D66CB0800E62EDF /* HiGameSDK-Core */,
 			);
 			name = "HiGameSDK-Core";
-			packageProductDependencies = (
-			);
 			productName = "HiGameSDK-Core";
 			productReference = B18C2F6B2D66CB0800E62EDF /* HiGameSDK_Core.framework */;
 			productType = "com.apple.product-type.framework";
@@ -357,10 +581,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B18C2FBC2D67207700E62EDF /* Build configuration list for PBXNativeTarget "HiGameSDK-Max" */;
 			buildPhases = (
+				23046614177CC2F1B0443F77 /* [CP] Check Pods Manifest.lock */,
 				B18C2FAE2D67207700E62EDF /* Headers */,
 				B18C2FAF2D67207700E62EDF /* Sources */,
 				B18C2FB02D67207700E62EDF /* Frameworks */,
 				B18C2FB12D67207700E62EDF /* Resources */,
+				B18C326D2D6D63F900E62EDF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -371,8 +597,6 @@
 				B18C2FB42D67207700E62EDF /* HiGameSDK-Max */,
 			);
 			name = "HiGameSDK-Max";
-			packageProductDependencies = (
-			);
 			productName = "HiGameSDK-Max";
 			productReference = B18C2FB32D67207700E62EDF /* HiGameSDK_Max.framework */;
 			productType = "com.apple.product-type.framework";
@@ -381,24 +605,26 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B18C30C22D6C1FBB00E62EDF /* Build configuration list for PBXNativeTarget "HiGameSDK-SwiftTest" */;
 			buildPhases = (
+				2827A66ECC7A3E5F4A460ED0 /* [CP] Check Pods Manifest.lock */,
 				B18C30AC2D6C1FBA00E62EDF /* Sources */,
 				B18C30AD2D6C1FBA00E62EDF /* Frameworks */,
 				B18C30AE2D6C1FBA00E62EDF /* Resources */,
-				B18C30D42D6C218500E62EDF /* Embed Frameworks */,
+				E578ACC616B05C56492BFF49 /* [CP] Embed Pods Frameworks */,
+				3C60E995D317E6B2B7CCB52A /* [CP] Copy Pods Resources */,
+				B18C32642D6D63F200E62EDF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				B18C30CC2D6C208200E62EDF /* PBXTargetDependency */,
-				B18C30D12D6C208500E62EDF /* PBXTargetDependency */,
-				B18C30FF2D6C554900E62EDF /* PBXTargetDependency */,
+				B19E5C282D6C771800BDAA62 /* PBXTargetDependency */,
+				B18C32D62D6D650700E62EDF /* PBXTargetDependency */,
+				B18C32DA2D6D650F00E62EDF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				B18C30B12D6C1FBA00E62EDF /* HiGameSDK-SwiftTest */,
 			);
 			name = "HiGameSDK-SwiftTest";
-			packageProductDependencies = (
-			);
 			productName = "HiGameSDK-SwiftTest";
 			productReference = B18C30B02D6C1FBA00E62EDF /* HiGameSDK-SwiftTest.app */;
 			productType = "com.apple.product-type.application";
@@ -407,11 +633,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B18C30E52D6C40CC00E62EDF /* Build configuration list for PBXNativeTarget "HiGameSDK-Account" */;
 			buildPhases = (
+				A96BC144D33F564769AE5BC2 /* [CP] Check Pods Manifest.lock */,
 				B18C30D72D6C40CC00E62EDF /* Headers */,
 				B18C30D82D6C40CC00E62EDF /* Sources */,
 				B18C30D92D6C40CC00E62EDF /* Frameworks */,
 				B18C30DA2D6C40CC00E62EDF /* Resources */,
-				B18C30F72D6C475300E62EDF /* Embed Frameworks */,
+				B18C32612D6D63EB00E62EDF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -422,10 +649,33 @@
 				B18C30DD2D6C40CC00E62EDF /* HiGameSDK-Account */,
 			);
 			name = "HiGameSDK-Account";
-			packageProductDependencies = (
-			);
 			productName = "HiGameSDK-Account";
 			productReference = B18C30DC2D6C40CC00E62EDF /* HiGameSDK_Account.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B18C31042D6C68BA00E62EDF /* HiGameSDK-TTAd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B18C310E2D6C68BA00E62EDF /* Build configuration list for PBXNativeTarget "HiGameSDK-TTAd" */;
+			buildPhases = (
+				4CED78D55E92D117D8669CF7 /* [CP] Check Pods Manifest.lock */,
+				B18C31002D6C68BA00E62EDF /* Headers */,
+				B18C31012D6C68BA00E62EDF /* Sources */,
+				B18C31022D6C68BA00E62EDF /* Frameworks */,
+				B18C31032D6C68BA00E62EDF /* Resources */,
+				53992F0370D49FF357BF5930 /* [CP] Copy Pods Resources */,
+				B18C325C2D6D63E600E62EDF /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B19E5C142D6C6A3300BDAA62 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B18C31062D6C68BA00E62EDF /* HiGameSDK-TTAd */,
+			);
+			name = "HiGameSDK-TTAd";
+			productName = "HiGameSDK-TTAd";
+			productReference = B18C31052D6C68BA00E62EDF /* HiGameSDK_TTAd.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -455,6 +705,10 @@
 						CreatedOnToolsVersion = 16.0;
 						LastSwiftMigration = 1600;
 					};
+					B18C31042D6C68BA00E62EDF = {
+						CreatedOnToolsVersion = 16.0;
+						LastSwiftMigration = 1600;
+					};
 				};
 			};
 			buildConfigurationList = B18C2F502D66CAB400E62EDF /* Build configuration list for PBXProject "HiGameSDK" */;
@@ -476,6 +730,7 @@
 				B18C2FB22D67207700E62EDF /* HiGameSDK-Max */,
 				B18C30AF2D6C1FBA00E62EDF /* HiGameSDK-SwiftTest */,
 				B18C30DB2D6C40CC00E62EDF /* HiGameSDK-Account */,
+				B18C31042D6C68BA00E62EDF /* HiGameSDK-TTAd */,
 			);
 		};
 /* End PBXProject section */
@@ -516,7 +771,234 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B18C31032D6C68BA00E62EDF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F5B3A038B3565912AD3C07C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HiGameSDK/Pods-HiGameSDK-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HiGameSDK/Pods-HiGameSDK-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HiGameSDK/Pods-HiGameSDK-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		23046614177CC2F1B0443F77 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HiGameSDK-Max-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2827A66ECC7A3E5F4A460ED0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HiGameSDK-SwiftTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C60E995D317E6B2B7CCB52A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HiGameSDK-SwiftTest/Pods-HiGameSDK-SwiftTest-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HiGameSDK-SwiftTest/Pods-HiGameSDK-SwiftTest-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HiGameSDK-SwiftTest/Pods-HiGameSDK-SwiftTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46E7DEB31B6E2BB0F6126123 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HiGameSDK/Pods-HiGameSDK-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HiGameSDK/Pods-HiGameSDK-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HiGameSDK/Pods-HiGameSDK-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CED78D55E92D117D8669CF7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HiGameSDK-TTAd-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		53992F0370D49FF357BF5930 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HiGameSDK-TTAd/Pods-HiGameSDK-TTAd-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HiGameSDK-TTAd/Pods-HiGameSDK-TTAd-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HiGameSDK-TTAd/Pods-HiGameSDK-TTAd-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		696FAA286AA3709579451651 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HiGameSDK-Core-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A96BC144D33F564769AE5BC2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HiGameSDK-Account-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3822F16FBC76E20C0BFF476 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HiGameSDK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E578ACC616B05C56492BFF49 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HiGameSDK-SwiftTest/Pods-HiGameSDK-SwiftTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HiGameSDK-SwiftTest/Pods-HiGameSDK-SwiftTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HiGameSDK-SwiftTest/Pods-HiGameSDK-SwiftTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B18C2F512D66CAB400E62EDF /* Sources */ = {
@@ -554,6 +1036,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B18C31012D6C68BA00E62EDF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -577,11 +1066,6 @@
 			target = B18C2F6A2D66CB0800E62EDF /* HiGameSDK-Core */;
 			targetProxy = B18C30CB2D6C208200E62EDF /* PBXContainerItemProxy */;
 		};
-		B18C30D12D6C208500E62EDF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B18C2FB22D67207700E62EDF /* HiGameSDK-Max */;
-			targetProxy = B18C30D02D6C208500E62EDF /* PBXContainerItemProxy */;
-		};
 		B18C30E12D6C40CC00E62EDF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B18C30DB2D6C40CC00E62EDF /* HiGameSDK-Account */;
@@ -592,10 +1076,30 @@
 			target = B18C2F6A2D66CB0800E62EDF /* HiGameSDK-Core */;
 			targetProxy = B18C30F52D6C475300E62EDF /* PBXContainerItemProxy */;
 		};
-		B18C30FF2D6C554900E62EDF /* PBXTargetDependency */ = {
+		B18C310A2D6C68BA00E62EDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B18C31042D6C68BA00E62EDF /* HiGameSDK-TTAd */;
+			targetProxy = B18C31092D6C68BA00E62EDF /* PBXContainerItemProxy */;
+		};
+		B18C32D62D6D650700E62EDF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B18C30DB2D6C40CC00E62EDF /* HiGameSDK-Account */;
-			targetProxy = B18C30FE2D6C554900E62EDF /* PBXContainerItemProxy */;
+			targetProxy = B18C32D52D6D650700E62EDF /* PBXContainerItemProxy */;
+		};
+		B18C32DA2D6D650F00E62EDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B18C2FB22D67207700E62EDF /* HiGameSDK-Max */;
+			targetProxy = B18C32D92D6D650F00E62EDF /* PBXContainerItemProxy */;
+		};
+		B19E5C142D6C6A3300BDAA62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B18C2F6A2D66CB0800E62EDF /* HiGameSDK-Core */;
+			targetProxy = B19E5C132D6C6A3300BDAA62 /* PBXContainerItemProxy */;
+		};
+		B19E5C282D6C771800BDAA62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B18C31042D6C68BA00E62EDF /* HiGameSDK-TTAd */;
+			targetProxy = B19E5C272D6C771800BDAA62 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -721,6 +1225,7 @@
 		};
 		B18C2F642D66CAB500E62EDF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C4FF8FF9FFA988D67517720 /* Pods-HiGameSDK.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -729,6 +1234,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"HiGameSDK/Preview Content\"";
 				DEVELOPMENT_TEAM = K92GXD5795;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -750,6 +1256,7 @@
 		};
 		B18C2F652D66CAB500E62EDF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1FDAF897D42DAA972C38C7A /* Pods-HiGameSDK.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -758,6 +1265,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"HiGameSDK/Preview Content\"";
 				DEVELOPMENT_TEAM = K92GXD5795;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -779,19 +1287,22 @@
 		};
 		B18C2F752D66CB0800E62EDF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 857BBA052E24F66DA0909DB7 /* Pods-HiGameSDK-Core.debug.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = K92GXD5795;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -802,6 +1313,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-Core";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -814,19 +1326,22 @@
 		};
 		B18C2F762D66CB0800E62EDF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F8210D5B00A492F9595F115 /* Pods-HiGameSDK-Core.release.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = K92GXD5795;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -837,6 +1352,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-Core";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -849,20 +1365,23 @@
 		};
 		B18C2FBD2D67207700E62EDF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BF0F97119E66C491925E2D2 /* Pods-HiGameSDK-Max.debug.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = K92GXD5795;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -873,6 +1392,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-Max";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -886,20 +1406,23 @@
 		};
 		B18C2FBE2D67207700E62EDF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9C7E47BBDD624776A16F9FA /* Pods-HiGameSDK-Max.release.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = K92GXD5795;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -910,6 +1433,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-Max";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -922,12 +1446,21 @@
 		};
 		B18C30C32D6C1FBB00E62EDF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 017569733ABF49F80B8B4660 /* Pods-HiGameSDK-SwiftTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K92GXD5795;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Ads-CN-Beta/SDK\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/Ads-CN-Beta/BUAdLive-Framework\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/Ads-CN-Beta/BUAdSDK\"",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HiGameSDK-SwiftTest/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -942,6 +1475,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-SwiftTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -950,12 +1484,15 @@
 		};
 		B18C30C42D6C1FBB00E62EDF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53BBAB554F714964F4CE7731 /* Pods-HiGameSDK-SwiftTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K92GXD5795;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HiGameSDK-SwiftTest/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -970,6 +1507,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-SwiftTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -978,20 +1516,23 @@
 		};
 		B18C30E62D6C40CC00E62EDF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1843514848467748AAB7E9E9 /* Pods-HiGameSDK-Account.debug.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = K92GXD5795;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1002,6 +1543,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-Account";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -1015,17 +1557,59 @@
 		};
 		B18C30E72D6C40CC00E62EDF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A82C1D44DF252593B1B9AE22 /* Pods-HiGameSDK-Account.release.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = K92GXD5795;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-Account";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B18C310F2D6C68BA00E62EDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BB919175182A4F7F9857C34 /* Pods-HiGameSDK-TTAd.debug.xcconfig */;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1037,8 +1621,49 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-Account";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-TTAd";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B18C31102D6C68BA00E62EDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69F07DEAEE16422B6A900750 /* Pods-HiGameSDK-TTAd.release.xcconfig */;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.neil.HiGameSDK-TTAd";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -1102,6 +1727,15 @@
 			buildConfigurations = (
 				B18C30E62D6C40CC00E62EDF /* Debug */,
 				B18C30E72D6C40CC00E62EDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B18C310E2D6C68BA00E62EDF /* Build configuration list for PBXNativeTarget "HiGameSDK-TTAd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B18C310F2D6C68BA00E62EDF /* Debug */,
+				B18C31102D6C68BA00E62EDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

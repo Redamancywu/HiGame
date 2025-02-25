@@ -1,0 +1,117 @@
+PODS:
+  - Ads-CN-Beta (6.7.0.3):
+    - Ads-CN-Beta/BUAdLive-Framework (= 6.7.0.3)
+    - Ads-CN-Beta/BUAdSDK (= 6.7.0.3)
+  - Ads-CN-Beta/BUAdLive-Framework (6.7.0.3):
+    - BUTTSDKFramework/LivePull-Lite (= 1.45.1.8-premium)
+  - Ads-CN-Beta/BUAdSDK (6.7.0.3)
+  - Ads-CN-Beta/CSJMediation (6.7.0.3):
+    - Ads-CN-Beta/BUAdSDK
+  - BaiduMobAdSDK (5.370)
+  - BUAdTestMeasurement-Beta (6.7.0.3):
+    - Ads-CN-Beta (= 6.7.0.3)
+  - BUTTSDKFramework/Core (1.45.1.8-premium)
+  - BUTTSDKFramework/LiveBase (1.45.1.8-premium):
+    - BUTTSDKFramework/Core
+    - BUTTSDKFramework/Reachability
+  - BUTTSDKFramework/LivePlayer/Base (1.45.1.8-premium):
+    - BUTTSDKFramework/Core
+    - BUTTSDKFramework/LiveBase
+    - BUTTSDKFramework/Reachability
+  - BUTTSDKFramework/LivePlayer/Lite (1.45.1.8-premium):
+    - BUTTSDKFramework/LivePlayer/Base
+    - BUTTSDKFramework/PlayerCore/LiveLite
+  - BUTTSDKFramework/LivePull-Lite (1.45.1.8-premium):
+    - BUTTSDKFramework/LivePlayer/Lite
+    - BUTTSDKFramework/Strategy/Lite
+  - BUTTSDKFramework/PlayerCore/LiveLite (1.45.1.8-premium):
+    - BUTTSDKFramework/TTFFmpeg/LiveLite
+  - BUTTSDKFramework/Reachability (1.45.1.8-premium)
+  - BUTTSDKFramework/SSL (1.45.1.8-premium)
+  - BUTTSDKFramework/Strategy/Core (1.45.1.8-premium):
+    - BUTTSDKFramework/LiveBase
+    - BUTTSDKFramework/Reachability
+  - BUTTSDKFramework/Strategy/Lite (1.45.1.8-premium):
+    - BUTTSDKFramework/LivePlayer/Lite
+    - BUTTSDKFramework/Strategy/Core
+  - BUTTSDKFramework/Tools (1.45.1.8-premium):
+    - BUTTSDKFramework/SSL
+  - BUTTSDKFramework/TTFFmpeg/Base (1.45.1.8-premium):
+    - BUTTSDKFramework/Tools
+  - BUTTSDKFramework/TTFFmpeg/LiveLite (1.45.1.8-premium):
+    - BUTTSDKFramework/TTFFmpeg/Base
+  - GDTMobSDK (4.15.10)
+  - GMAdmobAdapter-Beta (10.0.0.0):
+    - Ads-CN-Beta/CSJMediation (>= 6.1.0.2)
+  - GMBaiduAdapter-Beta (5.370.2):
+    - Ads-CN-Beta/CSJMediation (>= 6.7.0.0)
+  - GMGdtAdapter-Beta (4.15.10.1):
+    - Ads-CN-Beta/CSJMediation (>= 6.7.0.0)
+  - GMKsAdapter-Beta (3.3.71.1):
+    - Ads-CN-Beta/CSJMediation (>= 6.7.0.0)
+  - GMMintegralAdapter-Beta (7.7.3.1):
+    - Ads-CN-Beta/CSJMediation (>= 6.7.0.0)
+  - GMSigmobAdapter-Beta (4.15.3.1):
+    - Ads-CN-Beta/CSJMediation (>= 6.7.0.0)
+  - GMUnityAdapter-Beta (4.3.0.0):
+    - Ads-CN-Beta/CSJMediation (>= 6.1.0.2)
+  - KSAdSDK (3.3.71)
+  - SigmobAd-iOS (4.15.3):
+    - SigmobAd-iOS/WindSDK (= 4.15.3)
+  - SigmobAd-iOS/WindSDK (4.15.3)
+  - UnityAds (4.3.0)
+
+DEPENDENCIES:
+  - Ads-CN-Beta/CSJMediation (= 6.7.0.3)
+  - BaiduMobAdSDK (= 5.370)
+  - BUAdTestMeasurement-Beta (= 6.7.0.3)
+  - GDTMobSDK (= 4.15.10)
+  - GMAdmobAdapter-Beta (= 10.0.0.0)
+  - GMBaiduAdapter-Beta (= 5.370.2)
+  - GMGdtAdapter-Beta (= 4.15.10.1)
+  - GMKsAdapter-Beta (= 3.3.71.1)
+  - GMMintegralAdapter-Beta (= 7.7.3.1)
+  - GMSigmobAdapter-Beta (= 4.15.3.1)
+  - GMUnityAdapter-Beta (= 4.3.0.0)
+  - KSAdSDK (= 3.3.71)
+  - SigmobAd-iOS (= 4.15.3)
+  - UnityAds (= 4.3.0)
+
+SPEC REPOS:
+  trunk:
+    - Ads-CN-Beta
+    - BaiduMobAdSDK
+    - BUAdTestMeasurement-Beta
+    - BUTTSDKFramework
+    - GDTMobSDK
+    - GMAdmobAdapter-Beta
+    - GMBaiduAdapter-Beta
+    - GMGdtAdapter-Beta
+    - GMKsAdapter-Beta
+    - GMMintegralAdapter-Beta
+    - GMSigmobAdapter-Beta
+    - GMUnityAdapter-Beta
+    - KSAdSDK
+    - SigmobAd-iOS
+    - UnityAds
+
+SPEC CHECKSUMS:
+  Ads-CN-Beta: e8d837177f53d71d18fa17b7248bd309f1edd78d
+  BaiduMobAdSDK: ee04dd31ab0a3a1a1d4d025b29b24c2ee763e708
+  BUAdTestMeasurement-Beta: 26a51bd26a09801c15df9286f614e22bbe3bac66
+  BUTTSDKFramework: 914058900f46707f12a6e8c10e8da6ba4e891c3e
+  GDTMobSDK: 17a7af711cf6b7c8a3a0a4edc3916dc2467877e9
+  GMAdmobAdapter-Beta: 77e904313812ec32fed5a024940b3b5269f5036f
+  GMBaiduAdapter-Beta: 67147d9d75bdb9d3f970f22591b0d888a64da332
+  GMGdtAdapter-Beta: c114f90223d15ee610c0907d5872e372a0358378
+  GMKsAdapter-Beta: 850b4ccccb229d5ea1ec171b3ebe1f474effed29
+  GMMintegralAdapter-Beta: b40bc3db35ff448fdac04a578bcca8d99c40ee81
+  GMSigmobAdapter-Beta: 39e087e51a55e234195f6d9e59179bb048ea9924
+  GMUnityAdapter-Beta: a6c2864668120b59b1e4cd78a085300ddf44628c
+  KSAdSDK: df15bb4ed94d2c8fdf1b7b290a7635a3dbbb3885
+  SigmobAd-iOS: ea8355876005fd8a3063a6c39bb3e9290449ab8c
+  UnityAds: 53f7a71da8a16b3eedb57d3930e672687939f643
+
+PODFILE CHECKSUM: 36ace78f2c7368352912bca06eb65a2739035df9
+
+COCOAPODS: 1.16.2

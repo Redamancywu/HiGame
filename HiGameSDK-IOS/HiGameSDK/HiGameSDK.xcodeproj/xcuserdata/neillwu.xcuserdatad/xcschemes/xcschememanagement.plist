@@ -7,7 +7,7 @@
 		<key>HiGameSDK-Account.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>23</integer>
 		</dict>
 		<key>HiGameSDK-Ad.xcscheme_^#shared#^_</key>
 		<dict>
@@ -17,12 +17,12 @@
 		<key>HiGameSDK-Core.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>24</integer>
 		</dict>
 		<key>HiGameSDK-Max.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>22</integer>
 		</dict>
 		<key>HiGameSDK-Swift.xcscheme_^#shared#^_</key>
 		<dict>
@@ -37,12 +37,17 @@
 		<key>HiGameSDK-SwiftTest.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>25</integer>
+		</dict>
+		<key>HiGameSDK-TTAd.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>21</integer>
 		</dict>
 		<key>HiGameSDK.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>26</integer>
 		</dict>
 	</dict>
 </dict>

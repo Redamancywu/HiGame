@@ -35,6 +35,9 @@ public class HiGameLog {
         return false
     }()
     
+    // 默认日志 tag
+    private static let defaultTag = "HiGameSDKLog->"
+    
     // 私有初始化方法，防止外部创建实例
     private init() {}
     
@@ -93,22 +96,25 @@ public class HiGameLog {
         // 格式化日志输出
         let logMessage = "[\(level.rawValue)] [\(className)] [\(function):\(line)] \(message)"
         
+        // 添加固定 tag 到日志开头
+        let taggedLogMessage = "\(defaultTag) \(logMessage)"
+        
         // 根据日志级别设置样式
         let styledLogMessage: String
         if isAnsiEnabled {
             switch level {
             case .debug:
-                styledLogMessage = "\(LogStyle.cyan)\(logMessage)\(LogStyle.reset)"
+                styledLogMessage = "\(LogStyle.cyan)\(taggedLogMessage)\(LogStyle.reset)"
             case .info:
-                styledLogMessage = "\(LogStyle.green)\(logMessage)\(LogStyle.reset)"
+                styledLogMessage = "\(LogStyle.green)\(taggedLogMessage)\(LogStyle.reset)"
             case .warning:
-                styledLogMessage = "\(LogStyle.yellow)\(logMessage)\(LogStyle.reset)"
+                styledLogMessage = "\(LogStyle.yellow)\(taggedLogMessage)\(LogStyle.reset)"
             case .error:
-                styledLogMessage = "\(LogStyle.red)\(LogStyle.bold)\(logMessage)\(LogStyle.reset)"
+                styledLogMessage = "\(LogStyle.red)\(LogStyle.bold)\(taggedLogMessage)\(LogStyle.reset)"
             }
         } else {
             // 如果不支持 ANSI 转义序列，则使用纯文本
-            styledLogMessage = logMessage
+            styledLogMessage = taggedLogMessage
         }
         
         // 打印日志

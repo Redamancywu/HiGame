@@ -70,7 +70,6 @@ public class HiGameSDKManager {
             }
         }
     }
-    
     // 初始化所有已注册模块
     private func initializeModules(delegate: HiGameSDKInitDelegate?) {
         HiGameLog.d("开始初始化SDK，当前已注册模块数: \(self.modules.count)")
@@ -81,35 +80,92 @@ public class HiGameSDKManager {
             return
         }
         
-        var successCount = 0
-        var failedModules: [String] = []
-        let totalModules = self.modules.count
+        var moduleResults: [String: Any] = [:] // 存储每个模块的初始化结果
+        let group = DispatchGroup()
         
         for (moduleName, module) in self.modules {
+            group.enter() // 进入组
+            
             let internalDelegate = InternalDelegate(moduleName: moduleName) { success, error in
                 if success {
-                    successCount += 1
+                    moduleResults[moduleName] = ["status": "success"]
                 } else if let error = error {
-                    failedModules.append(moduleName)
+                    moduleResults[moduleName] = ["status": "failed", "error": error]
                 }
                 
-                if successCount + failedModules.count == totalModules {
-                    if failedModules.isEmpty {
-                        let data = moduleName// 模拟返回的数据
-                        HiGameLog.d("initSDK success data:\(data)")
-                        delegate?.onInitSuccess(data: data)
-                    } else {
-                        let errorMessage = "Modules failed: \(failedModules.joined(separator: ", "))"
-                        HiGameLog.e("initSDK failed message:\(errorMessage)")
-                        delegate?.onInitFailed(code: 400, errorMessage: errorMessage)
-                    }
-                }
+                group.leave() // 离开组
             }
             
-            module.initialize(delegate)
+            module.initialize(internalDelegate)
             module.onInitSDK(self.config) // 使用 HiGameSDKConfig.shared
         }
+        // 等待所有模块初始化完成
+        group.notify(queue: DispatchQueue.global()) {
+            // 构造返回结果
+            let resultData: [String: Any] = [
+                "totalModules": self.modules.count,
+                "moduleResults": moduleResults
+            ]
+            
+            // 转换为 JSON 字符串
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: resultData, options: .prettyPrinted)
+                let jsonString = String(data: jsonData, encoding: .utf8) ?? ""
+                
+                // 判断是否有失败模块
+                let failedModules = moduleResults.filter { ($0.value as? [String: Any])?["status"] as? String == "failed" }
+                if failedModules.isEmpty {
+                    HiGameLog.d("initSDK success data: \(jsonString)")
+                    delegate?.onInitSuccess(data: jsonString)
+                } else {
+                    let errorMessage = "部分模块初始化失败: \(failedModules)"
+                    HiGameLog.e("initSDK failed message: \(errorMessage)")
+                    delegate?.onInitFailed(code: 400, errorMessage: errorMessage)
+                }
+            } catch {
+                HiGameLog.e("JSON 序列化失败: \(error.localizedDescription)")
+                delegate?.onInitFailed(code: 500, errorMessage: "Failed to serialize initialization results.")
+            }
+        }
     }
+//    private func initializeModules(delegate: HiGameSDKInitDelegate?) {
+//        HiGameLog.d("开始初始化SDK，当前已注册模块数: \(self.modules.count)")
+//        
+//        guard !self.modules.isEmpty else {
+//            HiGameLog.e("初始化失败：没有注册任何模块")
+//            delegate?.onInitFailed(code: 500, errorMessage: "No modules registered.")
+//            return
+//        }
+//        
+//        var successCount = 0
+//        var failedModules: [String] = []
+//        let totalModules = self.modules.count
+//        
+//        for (moduleName, module) in self.modules {
+//            let internalDelegate = InternalDelegate(moduleName: moduleName) { success, error in
+//                if success {
+//                    successCount += 1
+//                } else if let error = error {
+//                    failedModules.append(moduleName)
+//                }
+//                
+//                if successCount + failedModules.count == totalModules {
+//                    if failedModules.isEmpty {
+//                        let data = moduleName// 模拟返回的数据
+//                        HiGameLog.d("initSDK success data:\(data)")
+//                        delegate?.onInitSuccess(data: data)
+//                    } else {
+//                        let errorMessage = "Modules failed: \(failedModules.joined(separator: ", "))"
+//                        HiGameLog.e("initSDK failed message:\(errorMessage)")
+//                        delegate?.onInitFailed(code: 400, errorMessage: errorMessage)
+//                    }
+//                }
+//            }
+//            
+//            module.initialize(delegate)
+//            module.onInitSDK(self.config) // 使用 HiGameSDKConfig.shared
+//        }
+//    }
     
     // 内部代理类
     private class InternalDelegate: HiGameSDKInitDelegate {
@@ -122,12 +178,12 @@ public class HiGameSDKManager {
         }
         
         func onInitSuccess(data: String) {
-            HiGameLog.d("\(moduleName) initialized successfully.")
+            HiGameLog.d("\(moduleName) 初始化成功")
             completion(true, nil)
         }
         
         func onInitFailed(code: Int, errorMessage: String) {
-            HiGameLog.d("\(moduleName) initialization failed with message: \(errorMessage)")
+            HiGameLog.e("\(moduleName) 初始化失败，错误信息: \(errorMessage)")
             completion(false, errorMessage)
         }
     }
@@ -202,6 +258,43 @@ public class HiGameSDKManager {
                 if let adModule = module as? HiGameSDKAdProtocol {
                     adModule.showAd(type: adType)
                     HiGameLog.d("为模块 \(adModule.moduleName) 展示广告类型 \(adType)")
+                }
+            }
+        }
+    }
+    public func isAdReady(_ adType: HiGameAdType) -> [String: Bool] {
+        var results: [String: Bool] = [:]
+        moduleQueue.sync {
+            for module in modules.values {
+                if let adModule = module as? HiGameSDKAdProtocol {
+                    let isReady = adModule.isAdReady(type: adType)
+                    results[adModule.moduleName] = isReady
+                    HiGameLog.d("为模块 \(adModule.moduleName) 是否准备好广告广告类型 \(adType): \(isReady)")
+                }
+            }
+        }
+        return results
+    }
+
+    public func isAdLoaded(_ adType: HiGameAdType) -> [String: Bool] {
+        var results: [String: Bool] = [:]
+        moduleQueue.sync {
+            for module in modules.values {
+                if let adModule = module as? HiGameSDKAdProtocol {
+                    let isLoaded = adModule.isAdLoaded(type: adType)
+                    results[adModule.moduleName] = isLoaded
+                    HiGameLog.d("为模块 \(adModule.moduleName) 准备加载广告类型 \(adType): \(isLoaded)")
+                }
+            }
+        }
+        return results
+    }
+    public func closeAd(_ adType:HiGameAdType) {
+        moduleQueue.sync {
+            for module in modules.values {
+                if let adModule = module as? HiGameSDKAdProtocol {
+                    adModule.closeAd(type: adType)
+                    HiGameLog.d("为模块 \(adModule.moduleName) 关闭广告 \(adType)")
                 }
             }
         }

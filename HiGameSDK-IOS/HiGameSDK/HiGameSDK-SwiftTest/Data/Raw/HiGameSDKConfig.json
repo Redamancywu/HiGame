@@ -1,10 +1,14 @@
 {
-    "appid": "123456789",
+    "appid": "5665267",
     "apiKey": "abcdefg12345",
     "environment": "production",
     "timeout": 30,
-    "features": {
-        "ads": true,
-        "analytics": false
-    }
+    "bannerSlotID": "964192239",
+    "interstitialSlotID": "964190991",
+    "bannerSize": {
+        "width": 320,
+        "height": 150
+    },
+    "enableAutoRefresh": true,
+    "refreshInterval": 60
 }
