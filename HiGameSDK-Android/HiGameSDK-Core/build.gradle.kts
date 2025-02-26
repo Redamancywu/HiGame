@@ -33,7 +33,6 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.gson)
     implementation(libs.auto.service.annotations)
-  //  kapt(libs.auto.service)
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
     implementation(libs.androidx.core.ktx)
@@ -43,4 +42,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.kotlin.coroutines.core) // 添加 Kotlin 协程核心库
+    implementation(libs.kotlin.coroutines.android) // 添加 Kotlin 协程 Android 库
 }
